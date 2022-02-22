@@ -1,6 +1,6 @@
 (import-macros {: pack : use-package! : rock : rock! : unpack!} :vanilla.macros)
 
-(use-package! :wbthomason/packer.nvim)
+(use-package! :wbthomason/packer.nvim {:config! :packer})
 (use-package! :lewis6991/impatient.nvim)
 
 (use-package! :Olical/conjure
