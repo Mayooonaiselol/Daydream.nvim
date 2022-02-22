@@ -1,4 +1,4 @@
-local _2afile_2a = "fnl/vanilla/plugins/diffview.fnl"
+local _2afile_2a = ".config/nvim/fnl/vanilla/plugins/diffview.fnl"
 local _2amodule_name_2a = "vanilla.plugins.diffview"
 local _2amodule_2a
 do

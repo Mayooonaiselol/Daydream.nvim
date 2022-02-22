@@ -1,4 +1,4 @@
-local _2afile_2a = "fnl/vanilla/plugins/telescope.fnl"
+local _2afile_2a = ".config/nvim/fnl/vanilla/plugins/telescope.fnl"
 local _local_1_ = require("telescope")
 local setup = _local_1_["setup"]
 local ffi = require("ffi")

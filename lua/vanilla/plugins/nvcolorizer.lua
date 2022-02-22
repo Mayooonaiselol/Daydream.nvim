@@ -1,4 +1,4 @@
-local _2afile_2a = "fnl/vanilla/plugins/nvcolorizer.fnl"
+local _2afile_2a = ".config/nvim/fnl/vanilla/plugins/nvcolorizer.fnl"
 local _2amodule_name_2a = "vanilla.plugins.nvcolorizer"
 local _2amodule_2a
 do

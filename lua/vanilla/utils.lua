@@ -1,4 +1,4 @@
-local _2afile_2a = "fnl/vanilla/utils.fnl"
+local _2afile_2a = ".config/nvim/fnl/vanilla/utils.fnl"
 local _2amodule_name_2a = "dots.utils"
 local _2amodule_2a
 do

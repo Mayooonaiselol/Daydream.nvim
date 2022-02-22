@@ -1,4 +1,4 @@
-local _2afile_2a = "fnl/vanilla/plugins/cmp.fnl"
+local _2afile_2a = ".config/nvim/fnl/vanilla/plugins/cmp.fnl"
 local _local_1_ = require("cmp")
 local setup = _local_1_["setup"]
 local mapping = _local_1_["mapping"]

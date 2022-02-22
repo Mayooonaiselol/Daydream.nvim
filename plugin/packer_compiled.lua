@@ -156,6 +156,11 @@ _G.packer_plugins = {
     path = "/home/mayo/.local/share/nvim/site/pack/packer/opt/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["conflict-marker.vim"] = {
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/conflict-marker.vim",
+    url = "https://github.com/rhysd/conflict-marker.vim"
+  },
   conjure = {
     loaded = true,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/conjure",
@@ -178,7 +183,6 @@ _G.packer_plugins = {
     url = "https://github.com/sindrets/diffview.nvim"
   },
   ["filetype.nvim"] = {
-    config = { "\27LJ\2\n8\0\0\2\0\3\0\0066\0\0\0009\0\1\0)\1\1\0=\1\2\0+\0\0\0L\0\2\0\23did_load_filetypes\6g\bvim\0" },
     loaded = true,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/filetype.nvim",
     url = "https://github.com/nathom/filetype.nvim"
@@ -189,6 +193,7 @@ _G.packer_plugins = {
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
+    config = { "require('vanilla.plugins.gitsigns')" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -199,6 +204,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/glepnir/lspsaga.nvim"
   },
   neorg = {
     config = { "require('vanilla.plugins.neorg')" },
@@ -215,7 +230,7 @@ _G.packer_plugins = {
     url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-calc", "cmp-conjure", "cmp-copilot", "cmp-path", "cmp-nvim-lsp", "cmp_luasnip" },
+    after = { "cmp-path", "cmp-calc", "cmp_luasnip", "cmp-conjure", "cmp-nvim-lsp", "cmp-copilot" },
     config = { "require('vanilla.plugins.cmp')" },
     load_after = {
       ["cmp-under-comparator"] = true
@@ -247,11 +262,6 @@ _G.packer_plugins = {
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
-  ["nvim-lightbulb"] = {
-    loaded = true,
-    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
-    url = "https://github.com/kosayoda/nvim-lightbulb"
-  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -269,7 +279,7 @@ _G.packer_plugins = {
     url = "https://github.com/gpanders/nvim-parinfer"
   },
   ["nvim-treesitter"] = {
-    after = { "nvim-ts-rainbow", "gitsigns.nvim", "neorg" },
+    after = { "gitsigns.nvim", "neorg", "nvim-ts-rainbow" },
     loaded = true,
     only_config = true
   },
@@ -286,22 +296,13 @@ _G.packer_plugins = {
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
-    after = { "telescope-fzf-native.nvim" },
-    load_after = {
-      ["popup.nvim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/mayo/.local/share/nvim/site/pack/packer/opt/plenary.nvim",
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
-    after = { "plenary.nvim" },
-    commands = { "Telescope" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/mayo/.local/share/nvim/site/pack/packer/opt/popup.nvim",
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["sqlite.lua"] = {
@@ -314,36 +315,35 @@ _G.packer_plugins = {
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
     url = "https://github.com/simrat39/symbols-outline.nvim"
   },
+  tabular = {
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/tabular",
+    url = "https://github.com/godlygeek/tabular"
+  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
   ["telescope-frecency.nvim"] = {
-    load_after = {
-      ["telescope-fzf-native.nvim"] = true
-    },
-    loaded = false,
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/opt/telescope-frecency.nvim",
     url = "https://github.com/nvim-telescope/telescope-frecency.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     after = { "telescope-frecency.nvim", "telescope.nvim" },
-    load_after = {
-      ["plenary.nvim"] = true
-    },
-    loaded = false,
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     config = { "require('vanilla.plugins.telescope')" },
-    load_after = {
-      ["telescope-fzf-native.nvim"] = true
-    },
-    loaded = false,
+    load_after = {},
+    loaded = true,
     needs_bufread = true,
     path = "/home/mayo/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -372,6 +372,16 @@ _G.packer_plugins = {
     path = "/home/mayo/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/mayo/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
+  },
   ["which-key.nvim"] = {
     config = { "require('which-key').setup()" },
     loaded = true,
@@ -385,6 +395,14 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-dap-ui]], true)
 try_loadstring("\27LJ\2\n/\0\0\3\0\3\0\0056\0\0\0'\2\1\0B\0\2\0029\0\2\0D\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
 time([[Config for nvim-dap-ui]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('vanilla.plugins.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('vanilla.plugins.lspconf')
+time([[Config for nvim-lspconfig]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 require('which-key').setup()
@@ -393,47 +411,46 @@ time([[Config for which-key.nvim]], false)
 time([[Config for nvim-base16]], true)
 require('vanilla.plugins.base16')
 time([[Config for nvim-base16]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('vanilla.plugins.treesitter')
-time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 require('vanilla.plugins.nvcolorizer')
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: filetype.nvim
-time([[Config for filetype.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\2\0\3\0\0066\0\0\0009\0\1\0)\1\1\0=\1\2\0+\0\0\0L\0\2\0\23did_load_filetypes\6g\bvim\0", "config", "filetype.nvim")
-time([[Config for filetype.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('vanilla.plugins.lspconf')
-time([[Config for nvim-lspconfig]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd gitsigns.nvim ]]
+
+-- Config for: gitsigns.nvim
+require('vanilla.plugins.gitsigns')
+
+vim.cmd [[ packadd nvim-ts-rainbow ]]
 vim.cmd [[ packadd neorg ]]
 
 -- Config for: neorg
 require('vanilla.plugins.neorg')
 
-vim.cmd [[ packadd nvim-ts-rainbow ]]
-vim.cmd [[ packadd gitsigns.nvim ]]
+vim.cmd [[ packadd plenary.nvim ]]
+vim.cmd [[ packadd telescope-fzf-native.nvim ]]
+vim.cmd [[ packadd telescope-frecency.nvim ]]
+vim.cmd [[ packadd telescope.nvim ]]
+
+-- Config for: telescope.nvim
+require('vanilla.plugins.telescope')
+
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DiffviewToggleFiles lua require("packer.load")({'diffview.nvim'}, { cmd = "DiffviewToggleFiles", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZAtaraxis lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZAtaraxis", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Trouble lua require("packer.load")({'trouble.nvim'}, { cmd = "Trouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'popup.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DiffviewOpen lua require("packer.load")({'diffview.nvim'}, { cmd = "DiffviewOpen", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZAtaraxis lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZAtaraxis", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file DiffviewToggleFiles lua require("packer.load")({'diffview.nvim'}, { cmd = "DiffviewToggleFiles", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Trouble lua require("packer.load")({'trouble.nvim'}, { cmd = "Trouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'cmp-under-comparator', 'copilot.vim'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'copilot.vim', 'cmp-under-comparator'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

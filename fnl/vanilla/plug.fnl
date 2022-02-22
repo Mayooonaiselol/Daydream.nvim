@@ -10,6 +10,8 @@
                           (pack :Olical/aniseed {:branch :develop})]})
 
 (use-package! :folke/which-key.nvim {:init :which-key})
+(use-package! :nvim-lua/plenary.nvim)
+(use-package! :nvim-lua/popup.nvim)
 
 (use-package! :nvim-telescope/telescope.nvim
               {:after :telescope-fzf-native.nvim
@@ -19,10 +21,11 @@
                           (pack :nvim-lua/plenary.nvim
                                 {:after :popup.nvim})
                           (pack :nvim-telescope/telescope-frecency.nvim
-                                {:requires [:tami5/sqlite.lua]
+                                {:requires :tami5/sqlite.lua
                                  :after :telescope-fzf-native.nvim})
                           (pack :nvim-telescope/telescope-fzf-native.nvim
-                                {:run :make :after :plenary.nvim})]})
+                                {:run :make
+                                 :after :plenary.nvim})]})
 
 (use-package! :hrsh7th/nvim-cmp
               {:after :cmp-under-comparator
@@ -40,12 +43,12 @@
 (use-package! :neovim/nvim-lspconfig
               {:config! :lspconf
                :requires :williamboman/nvim-lsp-installer})
-
+(use-package! :ray-x/lsp_signature.nvim {:events [:BufEnter]})
+(use-package! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
 (use-package! :simrat39/symbols-outline.nvim {:requires :neovim/nvim-lspconfig})
 (use-package! :weilbith/nvim-code-action-menu)
-(use-package! :kosayoda/nvim-lightbulb)
 (use-package! :akinsho/toggleterm.nvim)
-(use-package! :nathom/filetype.nvim {:config (fn [] (set vim.g.did_load_filetypes 1))})
+(use-package! :nathom/filetype.nvim {:config (set vim.g.did_load_filetypes 1)})
 
 (use-package! :folke/trouble.nvim
               {:cmd :Trouble
@@ -58,7 +61,8 @@
                :requires [(pack :p00f/nvim-ts-rainbow {:after :nvim-treesitter})]})
 
 (use-package! :RRethy/nvim-base16 {:config! :base16})
-(use-package! :Pocco81/TrueZen.nvim {:cmd :TZAtaraxis :config! :truezen})
+(use-package! :Pocco81/TrueZen.nvim {:cmd :TZAtaraxis
+                                     :config! :truezen})
 (use-package! :folke/twilight.nvim {:requires :Pocco81/TrueZen.nvim})
 (use-package! :norcalli/nvim-colorizer.lua {:config! :nvcolorizer})
 (use-package! :L3MON4D3/LuaSnip)
@@ -80,6 +84,12 @@
 (use-package! :sindrets/diffview.nvim {:cmd ["DiffviewOpen" "DiffviewToggleFiles"]
                                          :config! :diffview})
 (use-package! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
-                                        :opt false})
+                                        :config! :gitsigns})
+(use-package! :rhysd/conflict-marker.vim)
+;; (use-package! :TimUntersberger/neogit)
+
+(use-package! :godlygeek/tabular)
+(use-package! :mg979/vim-visual-multi)
+(use-package! :tpope/vim-surround)
 
 (unpack!)
