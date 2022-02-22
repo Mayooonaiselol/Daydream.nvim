@@ -10,7 +10,7 @@
 
 [![License](https://img.shields.io/github/license/shaunsingh/nyoom.nvim?style=flat-square)](https://mit-license.org/)
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.6.1-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
-[![GitHub Issues](https://img.shields.io/github/issues/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Issues&color=fc0330)](https://github.com/Mayooonaiselol/Daydream.nvim/issues)
+[![GitHub Issues](https://img.shields.io/github/issues/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Issues&color=efb645)](https://github.com/Mayooonaiselol/Daydream.nvim/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Last%20Commit&color=58eb34)](https://github.com/Mayooonaiselol/Daydream.nvim/pulse)
 
 </div>
