@@ -23,11 +23,22 @@ neovim pre-built configs (ready to use), works on neovim 0.6.0 and later version
 
 ## Showcase
 
+Code completions
+
 ![img1](Screenshots/1645553362_grim.png)
+
 ![img2](Screenshots/1645553466_grim.png)
+
 ![img3](Screenshots/1645553551_grim.png)
+
+Focused editing
+
 ![img4](Screenshots/1645553627_grim.png)
+
+Git plugins
+
 ![img5](Screenshots/1645553678_grim.png)
+
 ![img6](Screenshots/1645553737_grim.png)
 
 ## Install
