@@ -17,11 +17,25 @@
 
 WIP! will be finished soon
 
-## ABOUT:
+## About
 
 neovim pre-built configs (ready to use), works on neovim 0.6.0 and later versions
 
-## TODO:
+## Showcase
+
+![img1](Screenshots/1645553362_grim.png)
+![img2](Screenshots/1645553466_grim.png)
+![img3](Screenshots/1645553551_grim.png)
+![img4](Screenshots/1645553627_grim.png)
+![img5](Screenshots/1645553678_grim.png)
+![img6](Screenshots/1645553737_grim.png)
+
+## Install
+```
+git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 1 && nvim +PackerSync
+```
+
+## Todo
 
 1> Add more, useful plugins if needed
 
@@ -35,6 +49,3 @@ neovim pre-built configs (ready to use), works on neovim 0.6.0 and later version
 
 6> add documentation
 
-```
-git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 1 && nvim +PackerSync
-```
