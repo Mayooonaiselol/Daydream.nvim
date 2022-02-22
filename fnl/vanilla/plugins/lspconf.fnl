@@ -18,23 +18,6 @@
   (sign_define :DiagnosticSignInfo {:text "" :texthl :DiagnosticSignInfo})
   (sign_define :DiagnosticSignHint {:text "" :texthl :DiagnosticSignHint}))
 
-(fn init-lsp [lsp-name ?opts]
-  "initialize a language server with defaults"
-  (let [merged-opts (a.merge {:on_attach on_attach :capabilities default-capabilities} (or ?opts {}))]
-    ((. lsp lsp-name :setup) merged-opts)))
-
-(let [sumneko_root_path (.. vim.env.HOME "/.local/share/nvim/lsp_servers/sumneko_lua")
-      sumneko_binary (.. sumneko_root_path "/extension/server/bin/lua-language-server")]
-  (init-lsp
-    :sumneko_lua
-    {:cmd [sumneko_binary "-E" (.. sumneko_root_path "/main.lua")]
-     :settings {:Lua {:runtime {:version "LuaJIT"
-                                :path (vim.split package.path ";")}
-                      :diagnostics {:globals ["vim"]}
-                      :workspace {:library {(vim.fn.expand "$VIMRUNTIME/lua") true
-                                            (vim.fn.expand "$VIMRUNTIME/lua/vim/lsp") true}}
-                      :telemetry false}}}))
-
 (let [{: with : handlers} vim.lsp]
   (set vim.lsp.handlers.textDocument/signatureHelp
        (with handlers.signature_help {:border :single}))

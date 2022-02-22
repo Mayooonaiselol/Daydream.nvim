@@ -28,15 +28,6 @@ do
   sign_define("DiagnosticSignInfo", {text = "\239\145\137", texthl = "DiagnosticSignInfo"})
   sign_define("DiagnosticSignHint", {text = "\239\160\181", texthl = "DiagnosticSignHint"})
 end
-local function init_lsp(lsp_name, _3fopts)
-  local merged_opts = a.merge({on_attach = on_attach, capabilities = __fnl_global__default_2dcapabilities}, (_3fopts or {}))
-  return lsp[lsp_name].setup(merged_opts)
-end
-do
-  local sumneko_root_path = (vim.env.HOME .. "/.local/share/nvim/lsp_servers/sumneko_lua")
-  local sumneko_binary = (sumneko_root_path .. "/extension/server/bin/lua-language-server")
-  init_lsp("sumneko_lua", {cmd = {sumneko_binary, "-E", (sumneko_root_path .. "/main.lua")}, settings = {Lua = {runtime = {version = "LuaJIT", path = vim.split(package.path, ";")}, diagnostics = {globals = {"vim"}}, workspace = {library = {[vim.fn.expand("$VIMRUNTIME/lua")] = true, [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true}}, telemetry = false}}})
-end
 do
   local _let_3_ = vim.lsp
   local with = _let_3_["with"]

@@ -69,7 +69,7 @@
 (use-package! :rafamadriz/friendly-snippets)
 
 (use-package! :nvim-neorg/neorg
-              {:config! :neorg 
+              {:config! :neorg
                :after :nvim-treesitter})
 
 (use-package! :rcarriga/nvim-dap-ui {:opt false 

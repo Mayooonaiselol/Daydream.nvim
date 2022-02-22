@@ -230,7 +230,7 @@ _G.packer_plugins = {
     url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-path", "cmp-calc", "cmp_luasnip", "cmp-conjure", "cmp-nvim-lsp", "cmp-copilot" },
+    after = { "cmp-calc", "cmp-conjure", "cmp-copilot", "cmp-path", "cmp_luasnip", "cmp-nvim-lsp" },
     config = { "require('vanilla.plugins.cmp')" },
     load_after = {
       ["cmp-under-comparator"] = true
@@ -391,42 +391,42 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-try_loadstring("\27LJ\2\n/\0\0\3\0\3\0\0056\0\0\0'\2\1\0B\0\2\0029\0\2\0D\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
-time([[Config for nvim-dap-ui]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('vanilla.plugins.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('vanilla.plugins.lspconf')
-time([[Config for nvim-lspconfig]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require('which-key').setup()
-time([[Config for which-key.nvim]], false)
--- Config for: nvim-base16
-time([[Config for nvim-base16]], true)
-require('vanilla.plugins.base16')
-time([[Config for nvim-base16]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
 require('vanilla.plugins.nvcolorizer')
 time([[Config for nvim-colorizer.lua]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('vanilla.plugins.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require('which-key').setup()
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('vanilla.plugins.lspconf')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-base16
+time([[Config for nvim-base16]], true)
+require('vanilla.plugins.base16')
+time([[Config for nvim-base16]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\3\0\0056\0\0\0'\2\1\0B\0\2\0029\0\2\0D\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
+time([[Config for nvim-dap-ui]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd gitsigns.nvim ]]
-
--- Config for: gitsigns.nvim
-require('vanilla.plugins.gitsigns')
-
 vim.cmd [[ packadd nvim-ts-rainbow ]]
 vim.cmd [[ packadd neorg ]]
 
 -- Config for: neorg
 require('vanilla.plugins.neorg')
+
+vim.cmd [[ packadd gitsigns.nvim ]]
+
+-- Config for: gitsigns.nvim
+require('vanilla.plugins.gitsigns')
 
 vim.cmd [[ packadd plenary.nvim ]]
 vim.cmd [[ packadd telescope-fzf-native.nvim ]]
@@ -450,7 +450,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'copilot.vim', 'cmp-under-comparator'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'cmp-under-comparator', 'copilot.vim'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
