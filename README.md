@@ -1,4 +1,4 @@
-# Daydream
+# Daydream.nvim
 
 <div align="center">
 
