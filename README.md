@@ -10,8 +10,8 @@
 
 [![License](https://img.shields.io/github/license/shaunsingh/nyoom.nvim?style=flat-square)](https://mit-license.org/)
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.6.1-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
-[![GitHub Issues](https://img.shields.io/github/issues/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Issues&color=efb645)](https://github.com/Mayooonaiselol/Daydream.nvim/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Last%20Commit&color=58eb34)](https://github.com/Mayooonaiselol/Daydream.nvim/pulse)
+[![GitHub Issues](https://img.shields.io/github/issues/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Issues&color=8abeb7)](https://github.com/Mayooonaiselol/Daydream.nvim/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Last%20Commit&color=0070cf)](https://github.com/Mayooonaiselol/Daydream.nvim/pulse)
 
 </div>
 
@@ -41,6 +41,10 @@ Git plugins
 
 ![img6](Screenshots/1645553737_grim.png)
 
+New! Lualine showing LSP stats
+
+![img7](Screenshots/1645637956_grim.png)
+
 ## Install
 ```
 git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 1 && nvim +PackerSync
@@ -48,13 +52,13 @@ git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 
 
 ## Todo
 
-1> Add more, useful plugins if needed
+1> Add more, useful plugins if needed...Mostly Done
 
-2> fix errors
+2> fix errors...Done
 
 3> add more keybinds
 
-4> add plugin configs
+4> add plugin configs...Mostly Done
 
 5> lazy loading
 

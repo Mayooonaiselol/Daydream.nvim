@@ -13,6 +13,8 @@
 (use-package! :nvim-lua/plenary.nvim)
 (use-package! :nvim-lua/popup.nvim)
 
+(use-package! :nvim-lualine/lualine.nvim {:config! :lualine})
+;; (use-package! :akinsho/bufferline.nvim {:config ((. (require :bufferline) :setup) {})})
 (use-package! :nvim-telescope/telescope.nvim
               {:after :telescope-fzf-native.nvim
                :config! :telescope
@@ -48,7 +50,7 @@
 (use-package! :simrat39/symbols-outline.nvim {:requires :neovim/nvim-lspconfig})
 (use-package! :weilbith/nvim-code-action-menu)
 (use-package! :akinsho/toggleterm.nvim)
-(use-package! :nathom/filetype.nvim {:config (set vim.g.did_load_filetypes 1)})
+(use-package! :nathom/filetype.nvim {:config! :filetype})
 
 (use-package! :folke/trouble.nvim
               {:cmd :Trouble
