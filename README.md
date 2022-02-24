@@ -46,21 +46,31 @@ New! Lualine showing LSP stats
 ![img7](Screenshots/1645637956_grim.png)
 
 ## Install
-```
+
+### Dependencies
+
+The only dependencies are neovim-0.6.1+ and git.
+
+### Regular:
+
+Install the following dependencies: 
+- neovim-0.6.1+
+- ripgrep
+- nodejs (optional, for copilot)
+- fennel + fnlfmt (not required, but recommended)
+- font with nerdfont icons
+- sqlite
+- build-tools (optional, if errors occur)
+
+```bash
 git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 1 && nvim +PackerSync
 ```
 
 ## Todo
 
-1> Add more, useful plugins if needed...Mostly Done
-
-2> fix errors...Done
-
-3> add more keybinds
-
-4> add plugin configs...Mostly Done
-
-5> lazy loading
-
-6> add documentation
-
+- Add more, useful plugins if needed...Mostly Done
+- fix errors...Done
+- add more keybinds
+- add plugin configs...Mostly Done
+- lazy loading
+- add documentation
