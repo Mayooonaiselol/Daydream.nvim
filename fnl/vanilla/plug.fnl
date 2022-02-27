@@ -94,4 +94,7 @@
 (use-plug! :mg979/vim-visual-multi)
 (use-plug! :tpope/vim-surround)
 
+;; gotta showoff
+(use-plug! :andweeb/presence.nvim)
+
 (packer-setup!)
