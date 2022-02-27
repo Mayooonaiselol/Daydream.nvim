@@ -86,7 +86,7 @@
     (doto options
       (tset 1 identifier))))
 
-(λ use-package! [identifier ?options]
+(λ use-plug! [identifier ?options]
   "Declares a plugin with its options.
   This is a mixed table saved on the global compile-time variable conf/pack.
   See https://github.com/wbthomason/packer.nvim for information about the
@@ -118,7 +118,7 @@
                   "expected table for options" ?options)
   (insert vanilla/rock (rock identifier ?options)))
 
-(λ unpack! []
+(λ packer-setup! []
   "Initializes the plugin manager with the previously declared plugins and
   their options."
   (let [packs (icollect [_ v (ipairs vanilla/plugins)]
@@ -292,10 +292,10 @@
 {: command!
  : cmd
  : pack
- : use-package!
+ : use-plug!
  : rock
  : rock!
- : unpack!
+ : packer-setup!
  : vlua
  : noremap
  :let! let!-mult
