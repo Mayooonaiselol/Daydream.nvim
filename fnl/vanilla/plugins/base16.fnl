@@ -18,11 +18,11 @@
         :base0E "#a988b0"
         :base0F "#747272"})
 
-(vim.cmd "hi StatusLineNC gui=underline guibg=#151515 guifg=#3b3b3b")
-(vim.cmd "hi StatusLine gui=underline guibg=#151515 guifg=#3b3b3b")
+(cmd "hi StatusLineNC gui=underline guibg=base00 guifg=base03")
+(cmd "hi StatusLine gui=underline guibg=base00 guifg=base03")
 
 ;; subtle delimiters
-(cmd "hi MatchParen gui=underline guibg=#1f1f1f")
+(cmd "hi MatchParen gui=underline guibg=base01")
 
 ;; transparent vertical splits
 (cmd "hi VertSplit guibg=bg guifg=bg")
@@ -31,3 +31,7 @@
 (cmd "hi Todo gui=bold")
 (cmd "hi TSSymbol gui=bold")
 (cmd "hi TSFunction gui=bold")
+
+(cmd "hi clear CursorLine")
+(cmd "hi CursorLineNr guifg=base04 guibg=base00")
+(cmd "hi LineNr guifg=base03 guibg=base00")
