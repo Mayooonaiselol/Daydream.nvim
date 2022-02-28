@@ -34,4 +34,4 @@
 
 (cmd "hi clear CursorLine")
 (cmd "hi CursorLineNr guifg=base04 guibg=base00")
-(cmd "hi LineNr guifg=base03 guibg=base00")
+(cmd "hi LineNr guifg=#3b3b3b guibg=base00")

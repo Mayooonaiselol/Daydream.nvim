@@ -1,3 +1,7 @@
+(module vanilla.plugins.lualine
+  {autoload {nvim aniseed.nvim
+             base16 vanilla.plugins.base16}})
+
 (local {: setup} (require :lualine))
 
 (setup {:options {:icons_enabled true
