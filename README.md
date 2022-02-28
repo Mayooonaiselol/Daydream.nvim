@@ -62,8 +62,14 @@ Install the following dependencies:
 - sqlite
 - build-tools (optional, if errors occur)
 
+Linux:
 ```bash
 git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 1 && nvim +PackerSync
+```
+
+Windows:
+```
+git clone https://github.com/Mayooonaiselol/Daydream.git Appdata\Local\nvim\ --depth 1; nvim +PackerSync
 ```
 
 ## Todo
