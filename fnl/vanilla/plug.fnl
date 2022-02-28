@@ -44,7 +44,8 @@
 
 (use-plug! :neovim/nvim-lspconfig
               {:config! :lspconf
-               :requires :williamboman/nvim-lsp-installer})
+               :requires [:williamboman/nvim-lsp-installer
+                          (pack :j-hui/fidget.nvim {:after :nvim-lspconfig :init :fidget})]})
 (use-plug! :ray-x/lsp_signature.nvim {:events [:BufEnter]})
 (use-plug! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
 (use-plug! :simrat39/symbols-outline.nvim {:requires :neovim/nvim-lspconfig})
@@ -93,8 +94,5 @@
 (use-plug! :godlygeek/tabular)
 (use-plug! :mg979/vim-visual-multi)
 (use-plug! :tpope/vim-surround)
-
-;; gotta showoff
-(use-plug! :andweeb/presence.nvim)
 
 (packer-setup!)
