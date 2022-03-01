@@ -45,14 +45,14 @@
 
 (use-plug! :neovim/nvim-lspconfig
               {:config! :lspconf
-               :requires [:williamboman/nvim-lsp-installer
-                          (pack :j-hui/fidget.nvim {:after :nvim-lspconfig :init :fidget})]})
+               :requires :williamboman/nvim-lsp-installer})
+
 (use-plug! :ray-x/lsp_signature.nvim {:events [:BufEnter]})
 (use-plug! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
 (use-plug! :simrat39/symbols-outline.nvim {:requires :neovim/nvim-lspconfig})
 (use-plug! :weilbith/nvim-code-action-menu)
-(use-plug! :akinsho/toggleterm.nvim)
-(use-plug! :nathom/filetype.nvim {:config! :filetype})
+;; (use-plug! :akinsho/toggleterm.nvim)
+;; (use-plug! :nathom/filetype.nvim {:config! :filetype})
 
 (use-plug! :folke/trouble.nvim
               {:cmd :Trouble
@@ -74,15 +74,16 @@
 
 (use-plug! :nvim-neorg/neorg
               {:config! :neorg
+               :ft :norg
                :after :nvim-treesitter})
 
-(use-plug! :rcarriga/nvim-dap-ui {:opt false 
-                                  :config #((. (require :dapui) :setup))
-                                  :requires [:mfussenegger/nvim-dap]})
+;; (use-plug! :rcarriga/nvim-dap-ui {:opt false 
+;;                                  :config #((. (require :dapui) :setup))
+;;                                  :requires [:mfussenegger/nvim-dap]})
 
-(use-plug! :mfussenegger/nvim-dap {:opt false})
-(use-plug! :nvim-telescope/telescope-dap.nvim {:requires [:mfussenegger/nvim-dap
-                                                          :nvim-telescope/telescope.nvim]})
+;; (use-plug! :mfussenegger/nvim-dap {:opt false})
+;; (use-plug! :nvim-telescope/telescope-dap.nvim {:requires [:mfussenegger/nvim-dap
+;;                                                          :nvim-telescope/telescope.nvim})
 
 (use-plug! :tpope/vim-fugitive)
 (use-plug! :sindrets/diffview.nvim {:cmd ["DiffviewOpen" "DiffviewToggleFiles"]
@@ -92,8 +93,9 @@
 (use-plug! :rhysd/conflict-marker.vim)
 (use-plug! :TimUntersberger/neogit)
 
-(use-plug! :godlygeek/tabular)
-(use-plug! :mg979/vim-visual-multi)
-(use-plug! :tpope/vim-surround)
+;; TODO
+;; (use-plug! :godlygeek/tabular)
+;; (use-plug! :mg979/vim-visual-multi)
+;; (use-plug! :tpope/vim-surround)
 
 (packer-setup!)
