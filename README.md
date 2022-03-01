@@ -15,7 +15,7 @@
 
 </div>
 
-WIP! will be finished soon
+WIP! will be finished soon.
 
 ## About
 
