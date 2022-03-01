@@ -13,6 +13,7 @@
 (use-plug! :nvim-lua/plenary.nvim)
 (use-plug! :nvim-lua/popup.nvim)
 
+(use-plug! :kyazdani42/nvim-tree.lua {:config! :nvtree})
 (use-plug! :nvim-lualine/lualine.nvim {:config! :lualine})
 (use-plug! :akinsho/bufferline.nvim {:config! :bufferline})
 (use-plug! :nvim-telescope/telescope.nvim
