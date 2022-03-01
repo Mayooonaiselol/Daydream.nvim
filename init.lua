@@ -26,3 +26,9 @@ vim.g["aniseed#env"] = {
   module = "vanilla.init",
   compile = true
 }
+
+vim.cmd [[
+  au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal
+  au WinEnter,BufEnter,FileType NvimTree,terminal setlocal laststatus=0
+  au WinLeave,BufLeave,FileType NvimTree,terminal setlocal laststatus=2
+]]
