@@ -1,14 +1,5 @@
 (local {: setup} (require :nvim-treesitter.configs))
-(setup {:ensure_installed {1 :lua 2 :fennel}
+(setup {:ensure_installed {1 :lua 2 :fennel 3 :norg}
         :highlight {:enable true
                     :use_languagetree true}
-        :indent {:enable true}
-        :rainbow {:enable true
-                  :extended_mode true
-                  :max_file_lines 1000
-                  :colors {1 "#878d96"
-                           2 "#a8a8a8"
-                           3 "#8d8d8d"
-                           4 "#a2a9b0"
-                           5 "#8f8b8b"
-                           6 "#ada8a8"}}})
+        :indent {:enable true}})

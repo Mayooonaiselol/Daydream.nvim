@@ -12,7 +12,8 @@
 (use-plug! :folke/which-key.nvim {:init :which-key})
 (use-plug! :nvim-lua/plenary.nvim)
 (use-plug! :nvim-lua/popup.nvim)
-(use-plug! :lukas-reineke/indent-blankline.nvim)
+(use-plug! :lukas-reineke/indent-blankline.nvim {:config! :indentline})
+(use-plug! :windwp/nvim-autopairs {:config #((. (require :nvim-autopairs) :setup))})
 
 (use-plug! :kyazdani42/nvim-tree.lua {:config! :nvtree})
 (use-plug! :nvim-lualine/lualine.nvim {:config! :lualine
@@ -49,11 +50,7 @@
               {:config! :lspconf
                :requires :williamboman/nvim-lsp-installer})
 
-(use-plug! :ray-x/lsp_signature.nvim {:events [:BufEnter]})
 (use-plug! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
-(use-plug! :simrat39/symbols-outline.nvim {:requires :neovim/nvim-lspconfig})
-(use-plug! :weilbith/nvim-code-action-menu)
-;; (use-plug! :akinsho/toggleterm.nvim)
 ;; (use-plug! :nathom/filetype.nvim {:config! :filetype})
 
 (use-plug! :folke/trouble.nvim
@@ -62,10 +59,7 @@
                          (local {: setup} (require :trouble))
                          (setup {:icons false}))})
 
-(use-plug! :nvim-treesitter/nvim-treesitter
-              {:config! :treesitter
-               :requires [(pack :p00f/nvim-ts-rainbow {:after :nvim-treesitter})]})
-
+(use-plug! :nvim-treesitter/nvim-treesitter {:config! :treesitter})
 (use-plug! :RRethy/nvim-base16 {:config! :base16})
 (use-plug! :Pocco81/TrueZen.nvim {:cmd :TZAtaraxis
                                   :config! :truezen})
@@ -79,20 +73,11 @@
                :ft :norg
                :after :nvim-treesitter})
 
-;; (use-plug! :rcarriga/nvim-dap-ui {:opt false 
-;;                                  :config #((. (require :dapui) :setup))
-;;                                  :requires [:mfussenegger/nvim-dap]})
-
-;; (use-plug! :mfussenegger/nvim-dap {:opt false})
-;; (use-plug! :nvim-telescope/telescope-dap.nvim {:requires [:mfussenegger/nvim-dap
-;;                                                          :nvim-telescope/telescope.nvim})
-
 (use-plug! :tpope/vim-fugitive)
 (use-plug! :sindrets/diffview.nvim {:cmd ["DiffviewOpen" "DiffviewToggleFiles"]
                                       :config! :diffview})
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
                                      :config! :gitsigns})
-(use-plug! :rhysd/conflict-marker.vim)
 (use-plug! :TimUntersberger/neogit)
 
 ;; TODO

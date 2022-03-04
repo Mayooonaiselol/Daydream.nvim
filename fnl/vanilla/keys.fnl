@@ -85,7 +85,7 @@
 ;;nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 ;;inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
-;; (utils.keymap :n "<up>" "<nop>")
-;; (utils.keymap :n "<down>" "<nop>")
-;; (utils.keymap :n "<left>" "<nop>")
-;; (utils.keymap :n "<right>" "<nop>")
+(utils.keymap :n "<up>" "<nop>")
+(utils.keymap :n "<down>" "<nop>")
+(utils.keymap :n "<left>" "<nop>")
+(utils.keymap :n "<right>" "<nop>")
