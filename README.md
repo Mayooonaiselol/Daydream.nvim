@@ -21,7 +21,7 @@ WIP! will be finished soon
 
 neovim pre-built configs (ready to use), works on neovim 0.6.0 and later versions
 
-## Showcase
+## Showcase [todo: add upto date pictures]
 
 Code completions
 
