@@ -12,9 +12,11 @@
 (use-plug! :folke/which-key.nvim {:init :which-key})
 (use-plug! :nvim-lua/plenary.nvim)
 (use-plug! :nvim-lua/popup.nvim)
+(use-plug! :lukas-reineke/indent-blankline.nvim)
 
 (use-plug! :kyazdani42/nvim-tree.lua {:config! :nvtree})
-(use-plug! :nvim-lualine/lualine.nvim {:config! :lualine})
+(use-plug! :nvim-lualine/lualine.nvim {:config! :lualine
+                                       :requires :kyazdani42/nvim-web-devicons})
 (use-plug! :akinsho/bufferline.nvim {:config! :bufferline})
 (use-plug! :nvim-telescope/telescope.nvim
               {:after :telescope-fzf-native.nvim
