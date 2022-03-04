@@ -66,7 +66,8 @@
 ;; Truezen with Twilight!
 (utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
 
-(utils.keymap "n" "<C-b>" ":NvimTreeToggle<CR>" {})
+;; Nvimtree
+(utils.keymap :n "<C-b>" ":NvimTreeToggle<CR>" {})
 
 ;; Trouble
 (utils.keymap :n :<leader>xx :TroubleToggle<cr> {})
@@ -83,3 +84,8 @@
 
 ;;nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 ;;inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+;; (utils.keymap :n "<up>" "<nop>")
+;; (utils.keymap :n "<down>" "<nop>")
+;; (utils.keymap :n "<left>" "<nop>")
+;; (utils.keymap :n "<right>" "<nop>")
