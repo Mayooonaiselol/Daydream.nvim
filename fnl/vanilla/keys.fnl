@@ -61,7 +61,7 @@
 (utils.keymap :n :<leader>fr ":Telescope frecency<CR>")
 (utils.keymap :n :<leader>: ":Telescope commands<CR>")
 (utils.keymap :n :<leader><space> ":Telescope find_files<CR>")
-(utils.keymap :n :<leader>so ":lua require('telescope.builtin').lsp_document_symbols()<CR>")
+(utils.keymap :n :<leader>so ":lua require'telescope.builtin'.diagnostics{}<CR>")
 
 ;; Truezen with Twilight!
 (utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
@@ -76,14 +76,6 @@
 (utils.keymap :n :<leader>xq ":TroubleToggle quickfix<cr>" {})
 (utils.keymap :n :<leader>xl ":TroubleToggle loclist<cr>" {})
 (utils.keymap :n :<leader>xlp ":TroubleToggle lsp_references<cr>" {})
-
-;; ToggleTerm
-(utils.keymap :n "<A-t>" :ToggleTerm<CR>)
-;;autocmd TermEnter term://*toggleterm#*
-  ;;    \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>)
-
-;;nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-;;inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 ;; (utils.keymap :n "<up>" "<nop>")
 ;; (utils.keymap :n "<down>" "<nop>")

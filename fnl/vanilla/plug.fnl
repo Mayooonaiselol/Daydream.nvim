@@ -53,12 +53,6 @@
 (use-plug! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
 ;; (use-plug! :nathom/filetype.nvim {:config! :filetype})
 
-(use-plug! :folke/trouble.nvim
-              {:cmd :Trouble
-               :config (fn []
-                         (local {: setup} (require :trouble))
-                         (setup {:icons false}))})
-
 (use-plug! :nvim-treesitter/nvim-treesitter {:config! :treesitter})
 (use-plug! :RRethy/nvim-base16 {:config! :base16})
 (use-plug! :Pocco81/TrueZen.nvim {:cmd :TZAtaraxis
