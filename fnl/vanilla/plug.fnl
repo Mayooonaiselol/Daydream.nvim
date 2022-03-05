@@ -1,5 +1,8 @@
 (import-macros {: pack : use-plug! : rock : rock! : packer-setup!} :vanilla.macros)
 
+;; There are some plugins we only want to load for lisps. Heres a list of lispy filetypes I use
+(local lisp-ft [:fennel :clojure :lisp :racket :scheme])
+
 (use-plug! :wbthomason/packer.nvim {:config! :packer})
 (use-plug! :lewis6991/impatient.nvim)
 
@@ -13,12 +16,13 @@
 (use-plug! :nvim-lua/plenary.nvim)
 (use-plug! :nvim-lua/popup.nvim)
 (use-plug! :lukas-reineke/indent-blankline.nvim {:config! :indentline})
-(use-plug! :windwp/nvim-autopairs {:config #((. (require :nvim-autopairs) :setup))})
+(use-plug! :numToStr/Comment.nvim {:init :Comment})
+(use-plug! :windwp/nvim-autopairs {:init :nvim-autopairs})
 
-(use-plug! :kyazdani42/nvim-tree.lua {:config! :nvtree})
 (use-plug! :nvim-lualine/lualine.nvim {:config! :lualine
                                        :requires :kyazdani42/nvim-web-devicons})
 (use-plug! :akinsho/bufferline.nvim {:config! :bufferline})
+
 (use-plug! :nvim-telescope/telescope.nvim
               {:after :telescope-fzf-native.nvim
                :config! :telescope
@@ -26,29 +30,25 @@
                                 {:cmd :Telescope})
                           (pack :nvim-lua/plenary.nvim
                                 {:after :popup.nvim})
-                          (pack :nvim-telescope/telescope-frecency.nvim
-                                {:requires :tami5/sqlite.lua
-                                 :after :telescope-fzf-native.nvim})
                           (pack :nvim-telescope/telescope-fzf-native.nvim
                                 {:run :make
                                  :after :plenary.nvim})]})
+(use-plug! :nvim-telescope/telescope-file-browser.nvim {:requires :nvim-telescope/telescope.nvim})
 
 (use-plug! :hrsh7th/nvim-cmp
-              {:after :cmp-under-comparator
-               :config! :cmp
+              {:config! :cmp
                :requires [(pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
                           (pack :PaterJason/cmp-conjure {:after :nvim-cmp})
                           (pack :hrsh7th/cmp-path {:after :nvim-cmp})
                           (pack :hrsh7th/cmp-copilot {:after :nvim-cmp})
-                          (pack :hrsh7th/cmp-calc {:after :nvim-cmp})
                           (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
-                          (pack :github/copilot.vim {:event :InsertCharPre})
-                          (pack :lukas-reineke/cmp-under-comparator
-                                {:event :InsertCharPre})]})
+                          :github/copilot.vim
+                          :lukas-reineke/cmp-under-comparator]})
 
 (use-plug! :neovim/nvim-lspconfig
               {:config! :lspconf
-               :requires :williamboman/nvim-lsp-installer})
+               :requires [:williamboman/nvim-lsp-installer
+                          (pack :j-hui/fidget.nvim {:after :nvim-lspconfig :init :fidget})]})
 
 (use-plug! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
 ;; (use-plug! :nathom/filetype.nvim {:config! :filetype})
@@ -69,7 +69,7 @@
 
 (use-plug! :tpope/vim-fugitive)
 (use-plug! :sindrets/diffview.nvim {:cmd ["DiffviewOpen" "DiffviewToggleFiles"]
-                                      :config! :diffview})
+                                    :config! :diffview})
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
                                      :config! :gitsigns})
 (use-plug! :TimUntersberger/neogit)
