@@ -40,9 +40,8 @@
                :requires [(pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
                           (pack :PaterJason/cmp-conjure {:after :nvim-cmp})
                           (pack :hrsh7th/cmp-path {:after :nvim-cmp})
-                          (pack :hrsh7th/cmp-copilot {:after :nvim-cmp})
                           (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
-                          :github/copilot.vim
+                          (pack :hrsh7th/cmp-buffer {:after :nvim-cmp})
                           :lukas-reineke/cmp-under-comparator]})
 
 (use-plug! :neovim/nvim-lspconfig
@@ -50,8 +49,7 @@
                :requires [:williamboman/nvim-lsp-installer
                           (pack :j-hui/fidget.nvim {:after :nvim-lspconfig :init :fidget})]})
 
-(use-plug! :glepnir/lspsaga.nvim {:requires :neovim/nvim-lspconfig})
-;; (use-plug! :nathom/filetype.nvim {:config! :filetype})
+(use-plug! :nathom/filetype.nvim {:config! :filetype})
 
 (use-plug! :nvim-treesitter/nvim-treesitter {:config! :treesitter})
 (use-plug! :RRethy/nvim-base16 {:config! :base16})
@@ -74,9 +72,6 @@
                                      :config! :gitsigns})
 (use-plug! :TimUntersberger/neogit)
 
-;; TODO
-;; (use-plug! :godlygeek/tabular)
-;; (use-plug! :mg979/vim-visual-multi)
-;; (use-plug! :tpope/vim-surround)
+(use-plug! :mg979/vim-visual-multi)
 
 (packer-setup!)
