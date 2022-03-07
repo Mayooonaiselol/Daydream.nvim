@@ -9,27 +9,6 @@
 (local under-compare (require :cmp-under-comparator))
 (local {: insert} table)
 
-;; we don't want copilot to override our cmp settings 
-(let! copilot_no_tab_map true)
-(let! copilot_assume_mapped true)
-(let! copilot_tab_fallback "")
-
-;; colors!
-(cmd "hi CmpItemAbbrMatch gui=bold guifg=#FAFAFA")
-(cmd "hi CmpItemAbbrMatchFuzzy guifg=#FAFAFA")
-(cmd "hi CmpItemAbbr guifg=#a8a8a8")
-
-(cmd "hi CmpItemKindVariable guibg=NONE guifg=#be95ff")
-(cmd "hi CmpItemKindInterface guibg=NONE guifg=#be95ff")
-(cmd "hi CmpItemKindText guibg=NONE guifg=#be95ff")
-
-(cmd "hi CmpItemKindFunction guibg=NONE guifg=#ff7eb6")
-(cmd "hi CmpItemKindMethod guibg=NONE guifg=#ff7eb6")
-
-(cmd "hi CmpItemKindKeyword guibg=NONE guifg=#33b1ff")
-(cmd "hi CmpItemKindProperty guibg=NONE guifg=#33b1ff")
-(cmd "hi CmpItemKindUnit guibg=NONE guifg=#33b1ff")
-
 ;; and of course some settings
 (set! completeopt [:menu :menuone :noselect])
 
@@ -42,7 +21,6 @@
                                     (. {:nvim_lsp :lsp
                                         :Path :pth
                                         :treesitter :trs
-                                        :copilot :cop
                                         :conjure :cj}
                                        entry.source.name))
                                (set vim-item.kind
@@ -56,7 +34,7 @@
                                         :Interface ""
                                         :Module ""
                                         :Property "ﰠ"
-                                        :Unit "塞"
+                                        :Unit "塞"
                                         :Value ""
                                         :Enum ""
                                         :Keyword ""
@@ -70,7 +48,7 @@
                                         :Struct "פּ"
                                         :Event ""
                                         :Operator ""
-                                        :TypeParameter ""}
+                                        :TypeParameter ""}
                                        vim-item.kind))
                                vim-item)}
         :mapping {:<C-b> (mapping.scroll_docs -4)
@@ -86,5 +64,4 @@
                   :<space> (mapping.confirm {:select false})}
         :sources [{:name :nvim_lsp}
                   {:name :conjure}
-                  {:name :copilot}
                   {:name :path}]})

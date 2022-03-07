@@ -67,7 +67,7 @@
 ;; Truezen with Twilight!
 (utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
 
-;; (utils.keymap :n "<up>" "<nop>")
-;; (utils.keymap :n "<down>" "<nop>")
-;; (utils.keymap :n "<left>" "<nop>")
-;; (utils.keymap :n "<right>" "<nop>")
+(utils.keymap :n "<up>" "<nop>")
+(utils.keymap :n "<down>" "<nop>")
+(utils.keymap :n "<left>" "<nop>")
+(utils.keymap :n "<right>" "<nop>")

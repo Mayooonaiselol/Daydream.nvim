@@ -65,13 +65,16 @@
                :ft :norg
                :after :nvim-treesitter})
 
+(use-plug! :rcarriga/nvim-notify
+              {:config! :notify})
+
 (use-plug! :tpope/vim-fugitive)
-(use-plug! :sindrets/diffview.nvim {:cmd ["DiffviewOpen" "DiffviewToggleFiles"]
-                                    :config! :diffview})
+(use-plug! :sindrets/diffview.nvim {:config! :diffview})
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
                                      :config! :gitsigns})
 (use-plug! :TimUntersberger/neogit)
 
+(use-plug! :godlygeek/tabular)
 (use-plug! :mg979/vim-visual-multi)
 
 (packer-setup!)

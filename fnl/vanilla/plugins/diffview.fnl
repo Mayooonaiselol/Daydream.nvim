@@ -4,8 +4,8 @@
 
 (diffview.setup
  {:diff_binaries false
-  :file_panel {:width 35 
-               :use_icons false}
+  :use_icons true
+  :file_panel {:width 35}
   :key_bindings {:view {:<leader>dn (cb.diffview_callback "select_next_entry")
                         :<leader>dp (cb.diffview_callback "select_prev_entry")
                         :<leader>dm (cb.diffview_callback "toggle_files")}}})
