@@ -38,7 +38,7 @@
 (use-plug! :hrsh7th/nvim-cmp
               {:config! :cmp
                :requires [(pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
-                          (pack :PaterJason/cmp-conjure {:after :nvim-cmp})
+                          (pack :PaterJason/cmp-conjure {:after :conjure})
                           (pack :hrsh7th/cmp-path {:after :nvim-cmp})
                           (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
                           (pack :hrsh7th/cmp-buffer {:after :nvim-cmp})
@@ -49,13 +49,12 @@
                :requires [:williamboman/nvim-lsp-installer
                           (pack :j-hui/fidget.nvim {:after :nvim-lspconfig :init :fidget})]})
 
-(use-plug! :nathom/filetype.nvim {:config! :filetype})
-
 (use-plug! :nvim-treesitter/nvim-treesitter {:config! :treesitter})
 (use-plug! :RRethy/nvim-base16 {:config! :base16})
 (use-plug! :Pocco81/TrueZen.nvim {:cmd :TZAtaraxis
                                   :config! :truezen})
-(use-plug! :folke/twilight.nvim {:requires :Pocco81/TrueZen.nvim})
+(use-plug! :folke/twilight.nvim {:requires :Pocco81/TrueZen.nvim
+                                 :cmd :Twilight})
 (use-plug! :norcalli/nvim-colorizer.lua {:config! :nvcolorizer})
 (use-plug! :L3MON4D3/LuaSnip)
 (use-plug! :rafamadriz/friendly-snippets)
@@ -65,16 +64,16 @@
                :ft :norg
                :after :nvim-treesitter})
 
-(use-plug! :rcarriga/nvim-notify
-              {:config! :notify})
+(use-plug! :rcarriga/nvim-notify {:config! :notify})
 
 (use-plug! :tpope/vim-fugitive)
-(use-plug! :sindrets/diffview.nvim {:config! :diffview})
+(use-plug! :sindrets/diffview.nvim {:config! :diffview
+                                    :cmd ["DiffviewOpen" "DiffviewToggleFiles"]})
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
                                      :config! :gitsigns})
-(use-plug! :TimUntersberger/neogit)
+(use-plug! :TimUntersberger/neogit {:cmd :Neogit})
 
-(use-plug! :godlygeek/tabular)
+(use-plug! :godlygeek/tabular {:cmd :Tabularize})
 (use-plug! :mg979/vim-visual-multi)
 
 (packer-setup!)
