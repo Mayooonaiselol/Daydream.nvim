@@ -9,8 +9,7 @@
 (use-plug! :Olical/conjure
               {:branch :develop
                :ft lisp-ft
-               :requires [(pack :gpanders/nvim-parinfer {:ft lisp-ft})
-                          (pack :Olical/aniseed {:branch :develop})]})
+               :requires (pack :Olical/aniseed {:branch :develop})})
 
 (use-plug! :folke/which-key.nvim {:init :which-key})
 (use-plug! :nvim-lua/plenary.nvim)
@@ -23,6 +22,7 @@
                                        :requires :kyazdani42/nvim-web-devicons})
 (use-plug! :akinsho/bufferline.nvim {:config! :bufferline})
 
+;; Telescope
 (use-plug! :nvim-telescope/telescope.nvim
               {:after :telescope-fzf-native.nvim
                :config! :telescope
@@ -66,12 +66,11 @@
 
 (use-plug! :rcarriga/nvim-notify {:config! :notify})
 
-(use-plug! :tpope/vim-fugitive)
+;; Git stuff
 (use-plug! :sindrets/diffview.nvim {:config! :diffview
                                     :cmd ["DiffviewOpen" "DiffviewToggleFiles"]})
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
                                      :config! :gitsigns})
-(use-plug! :TimUntersberger/neogit {:cmd :Neogit})
 
 (use-plug! :godlygeek/tabular {:cmd :Tabularize})
 (use-plug! :mg979/vim-visual-multi)
