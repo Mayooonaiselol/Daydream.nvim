@@ -16,15 +16,14 @@
 (set! completeopt [:menu :menuone :noselect])
 
 (setup {:preselect types.cmp.PreselectMode.None
-        :formatting {;; :fields [cmp.ItemField.Kind
-                     ;;          cmp.ItemField.Abbr
-                     ;;          cmp.ItemField.Menu
-                     :format (fn [entry vim-item]
+        :formatting {:format (fn [entry vim-item]
                                (set vim-item.menu
                                     (. {:nvim_lsp :lsp
                                         :Path :pth
                                         :treesitter :trs
-                                        :conjure :cj}
+                                        :conjure :cj
+                                        :luasnip :snip
+                                        :buffer :buf}
                                        entry.source.name))
                                (set vim-item.kind
                                     (. {:Text ""
@@ -68,4 +67,5 @@
         :sources [{:name :nvim_lsp}
                   {:name :conjure}
                   {:name :luasnip}
-                  {:name :path}]})
+                  {:name :path}
+                  {:name :buffer}]})
