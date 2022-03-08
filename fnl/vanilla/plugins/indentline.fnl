@@ -1,5 +1,6 @@
 (local {: setup} (require "indent_blankline"))
-(setup {:filetype_exclude {1 :terminal
+(setup {:char "▏"
+        :filetype_exclude {1 :terminal
                            2 :dashboard
                            3 :packer
                            4 :fennel

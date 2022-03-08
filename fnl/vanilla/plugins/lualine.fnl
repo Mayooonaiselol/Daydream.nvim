@@ -36,7 +36,7 @@
                                                                     (let [___antifnl_rtn_1___ client.name]
                                                                       (lua "return ___antifnl_rtn_1___"))))
                                                                 msg))
-                                                          :icon ""
+                                                          :icon ""
                                                           :color {:fg colors.base04}}}
                                            :lualine_x {1 :encoding
                                                        2 :filename

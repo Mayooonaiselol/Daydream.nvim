@@ -21,7 +21,7 @@ WIP! will be finished soon
 
 neovim pre-built configs (ready to use), works on neovim 0.6.0 and later versions
 
-## Showcase
+## Showcase [todo: add upto date pictures]
 
 Code completions
 
@@ -74,7 +74,7 @@ git clone https://github.com/Mayooonaiselol/Daydream.git Appdata\Local\nvim\ --d
 
 ## Todo
 
-- Add more, useful plugins if needed...Mostly Done
+- Add more, useful plugins if needed...Too many added, cleanup needed
 - fix errors...Done
 - add more keybinds
 - add plugin configs...Mostly Done

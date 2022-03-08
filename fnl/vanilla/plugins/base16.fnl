@@ -1,9 +1,6 @@
 (import-macros {: cmd} :vanilla.macros)
-
 (local {: setup} (require :base16-colorscheme))
-
 (local colors (require :vanilla.colors))
-
 (setup colors)
 
 (cmd (.. "hi StatusLineNC gui=underline guibg=" colors.base00 " guifg=" colors.base03))

@@ -58,32 +58,14 @@
 ;; Telescope
 (utils.keymap :n :<leader>b ":Telescope buffers<CR>")
 (utils.keymap :n :<leader>ff ":Telescope current_buffer_fuzzy_find<CR>")
-(utils.keymap :n :<leader>fr ":Telescope frecency<CR>")
 (utils.keymap :n :<leader>: ":Telescope commands<CR>")
 (utils.keymap :n :<leader><space> ":Telescope find_files<CR>")
-(utils.keymap :n :<leader>so ":lua require('telescope.builtin').lsp_document_symbols()<CR>")
+(utils.keymap :n :<leader>fb ":Telescope file_browser<CR>")
+(utils.keymap :n :<leader>so ":lua require'telescope.builtin'.diagnostics{}<CR>")
+(utils.keymap :n :<leader>sop ":Telescope treesitter<CR>")
 
 ;; Truezen with Twilight!
 (utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
-
-;; Nvimtree
-(utils.keymap :n "<C-b>" ":NvimTreeToggle<CR>" {})
-
-;; Trouble
-(utils.keymap :n :<leader>xx :TroubleToggle<cr> {})
-(utils.keymap :n :<leader>xw ":TroubleToggle workspace_diagnostics<cr>" {})
-(utils.keymap :n :<leader>xd ":TroubleToggle document_diagnostics<cr>" {})
-(utils.keymap :n :<leader>xq ":TroubleToggle quickfix<cr>" {})
-(utils.keymap :n :<leader>xl ":TroubleToggle loclist<cr>" {})
-(utils.keymap :n :<leader>xlp ":TroubleToggle lsp_references<cr>" {})
-
-;; ToggleTerm
-(utils.keymap :n "<A-t>" :ToggleTerm<CR>)
-;;autocmd TermEnter term://*toggleterm#*
-  ;;    \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>)
-
-;;nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-;;inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 ;; (utils.keymap :n "<up>" "<nop>")
 ;; (utils.keymap :n "<down>" "<nop>")

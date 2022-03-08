@@ -1,7 +1,7 @@
 (module vanilla.core
   {autoload {nvim aniseed.nvim}})
 
-(import-macros {: set!} :vanilla.macros)
+(import-macros {: set! : cmd} :vanilla.macros)
 
 (let [built-ins [:netrw
                  :netrwPlugin
@@ -57,3 +57,6 @@
 (set! shiftwidth 2)
 (set! softtabstop 2)
 (set! cursorline)
+
+;; no line numbers in terminal
+(cmd "au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal")
