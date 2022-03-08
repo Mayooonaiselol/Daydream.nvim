@@ -9,6 +9,9 @@
 (local under-compare (require :cmp-under-comparator))
 (local {: insert} table)
 
+(local friendly_snippets (require :luasnip.loaders.from_vscode))
+( friendly_snippets.load)
+
 ;; and of course some settings
 (set! completeopt [:menu :menuone :noselect])
 
@@ -64,4 +67,5 @@
                   :<space> (mapping.confirm {:select false})}
         :sources [{:name :nvim_lsp}
                   {:name :conjure}
+                  {:name :luasnip}
                   {:name :path}]})

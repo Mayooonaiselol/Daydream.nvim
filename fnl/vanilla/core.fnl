@@ -45,7 +45,8 @@
 (set! lazyredraw)
 (set! scrolloff 3)
 (set! updatetime 500)
-(set! fillchars "eob: ")
+(set! fillchars {:vert " "
+                 :eob " "})
 (set! signcolumn "auto:1-9")
 (set! clipboard :unnamedplus)
 ;; (set! statusline "%F%m%r%h%w: %2l")
