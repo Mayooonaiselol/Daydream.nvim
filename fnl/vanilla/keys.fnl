@@ -26,8 +26,8 @@
 (utils.keymap :n :<C-Right> ":vertical resize +2<CR>" {})
 
 ;; Switching buffers
-(utils.keymap :n :<S-l> :bnext<CR> {})
-(utils.keymap :n :<S-h> :bprevious<CR> {})
+(utils.keymap :n :<S-l> ":bnext<CR>" {})
+(utils.keymap :n :<S-h> ":bprevious<CR>" {})
 
 (utils.keymap :i :jk :<esc>)
 (utils.keymap :c :jk :<c-c>)
