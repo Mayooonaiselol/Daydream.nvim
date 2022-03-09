@@ -67,8 +67,6 @@
 (use-plug! :rcarriga/nvim-notify {:config! :notify})
 
 ;; Git stuff
-(use-plug! :sindrets/diffview.nvim {:config! :diffview
-                                    :cmd ["DiffviewOpen" "DiffviewToggleFiles"]})
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter
                                      :config! :gitsigns})
 
