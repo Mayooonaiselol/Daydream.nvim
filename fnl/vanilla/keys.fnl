@@ -9,6 +9,10 @@
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader " ")
 
+;; (utils.keymap :n :K "<Nop>")
+;; (utils.keymap :v :K "<Nop>")
+;; (set vim.g.AutoPairsShortcutBackInsert "<M-b>")
+
 ;; Easier command line mode
 (utils.keymap :n ";" ":")
 (utils.keymap :v ";" ":")
@@ -67,6 +71,25 @@
 ;; Truezen with Twilight!
 (utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
 
+;; LSP keybinds
+(utils.keymap :n "<space>e" "<cmd>lua vim.diagnostic.open_float()<CR>" {})
+(utils.keymap :n "<space>[" "<cmd>lua vim.diagnostic.goto_prev()<CR>" {})
+(utils.keymap :n "<space>]" "<cmd>lua vim.diagnostic.goto_next()<CR>" {})
+(utils.keymap :n "<space>q" "<cmd>lua vim.diagnostic.setloclist()<CR>" {})
+
+;; (utils.keymap :n "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" {:buffer})
+;; (utils.keymap :n "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" {:buffer})
+;; (utils.keymap :n "K" "<cmd>lua vim.lsp.buf.hover()<CR>" {:buffer})
+;; (utils.keymap :n "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>" {:buffer})
+;; (utils.keymap :n "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:buffer})
+;; (utils.keymap :n "<space>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" {:buffer})
+;; (utils.keymap :n "<space>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" {:buffer})
+;; (utils.keymap :n "<space>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" {:buffer})
+;; (utils.keymap :n "<space>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:buffer})
+;; (utils.keymap :n "<space>rn" "<cmd>lua vim.lsp.buf.rename()<CR>" {:buffer})
+;; (utils.keymap :n "<space>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>" {:buffer})
+;; (utils.keymap :n "gr" "<cmd>lua vim.lsp.buf.references()<CR>" {:buffer})
+;; (utils.keymap :n "<space>f" "<cmd>lua vim.lsp.buf.formatting()<CR>" {:buffer})
 ;; (utils.keymap :n "<up>" "<nop>")
 ;; (utils.keymap :n "<down>" "<nop>")
 ;; (utils.keymap :n "<left>" "<nop>")

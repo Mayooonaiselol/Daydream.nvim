@@ -9,7 +9,7 @@
       {: sign_define} vim.fn]
   (config {:underline {:severity {:min severity.INFO}}
            :signs {:severity {:min severity.INFO}}
-           :virtual_text {:severity {:min severity.INFO}}
+           :virtual_text false
            :update_in_insert false
            :severity_sort true
            :float {:show_header false :border :single}})
@@ -25,6 +25,11 @@
        (with handlers.hover {:border :single})))
 
 (local lsp_installer (require :nvim-lsp-installer))
+(local {: settings} (require :nvim-lsp-installer))
+
+(settings {:ui {:icons {:server_installed ""
+                        :server_pending ""
+                        :server_uninstalled ""}}})
 
 (lsp_installer.on_server_ready (fn [server]
                                  (let [opts {}]

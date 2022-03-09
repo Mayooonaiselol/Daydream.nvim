@@ -68,4 +68,12 @@
                   {:name :conjure}
                   {:name :luasnip}
                   {:name :path}
-                  {:name :buffer}]})
+                  {:name :buffer}]
+        :sorting {:comparators [compare.offset
+                                compare.exact
+                                compare.score
+                                under-compare.under
+                                compare.kind
+                                compare.sort_text
+                                compare.length
+                                compare.order]}})
