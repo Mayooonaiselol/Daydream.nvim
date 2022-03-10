@@ -1,73 +1,111 @@
 (module vanilla.keys
   {autoload {a aniseed.core
              nvim aniseed.nvim
-             utils vanilla.utils
              wk which-key
              treesitter-selection nvim-treesitter.incremental_selection
              lspactions lspactions}})
 
+(import-macros {: map
+                : inoremap
+                : imap
+                : vnoremap
+                : vmap
+                : tnoremap
+                : tmap
+                : cnoremap
+                : cmap
+                : nnoremap
+                : nmap
+                : xnoremap
+                : xmap} :vanilla.macros)
+
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader " ")
 
+;; (utils.keymap :n :K "<Nop>")
+;; (utils.keymap :v :K "<Nop>")
+;; (set vim.g.AutoPairsShortcutBackInsert "<M-b>")
+
 ;; Easier command line mode
-(utils.keymap :n ";" ":")
-(utils.keymap :v ";" ":")
+(nnoremap ";" ":")
+(vnoremap ";" ":")
 
 ;; Easy movement between splits
-(utils.keymap :n :<C-h> :<C-w>h {})
-(utils.keymap :n :<C-j> :<C-w>j {})
-(utils.keymap :n :<C-k> :<C-w>k {})
-(utils.keymap :n :<C-l> :<C-w>l {})
+(nnoremap "<C-h>" "<C-w>h")
+(nnoremap "<C-j>" "<C-w>j")
+(nnoremap "<C-k>" "<C-w>k")
+(nnoremap "<C-l>" "<C-w>l")
 
 ;; Easy resizing splits
-(utils.keymap :n :<C-Up> ":resize +2<CR>" {})
-(utils.keymap :n :<C-Down> ":resize -2<CR>" {})
-(utils.keymap :n :<C-Left> ":vertical resize -2<CR>" {})
-(utils.keymap :n :<C-Right> ":vertical resize +2<CR>" {})
+(nnoremap "<C-Up>" ":resize +2<CR>")
+(nnoremap "<C-Down>" ":resize -2<CR>")
+(nnoremap "<C-Left>" ":vertical resize -2<CR>")
+(nnoremap "<C-Right>" ":vertical resize +2<CR>")
 
 ;; Switching buffers
-(utils.keymap :n :<S-l> :bnext<CR> {})
-(utils.keymap :n :<S-h> :bprevious<CR> {})
+(nnoremap "<S-l>" ":bnext<CR>")
+(nnoremap "<S-h>" ":bprevious<CR>")
 
-(utils.keymap :i :jk :<esc>)
-(utils.keymap :c :jk :<c-c>)
-(utils.keymap :t :jk :<c-\><c-n>)
-(utils.keymap :n :<esc> :<esc><cmd>noh<cr>)
-(utils.keymap :n "<leader>w" ":set wrap!<CR>")
+;; Easy escape
+(inoremap "jk" "<esc>")
+(cnoremap "jk" "<c-c>")
+(nnoremap "<esc>" "<esc><cmd>noh<CR>")
 
-;; Move text up and down
-(utils.keymap :v :<A-j> ":m .+1<CR>==" {})
-(utils.keymap :v :<A-k> ":m .-2<CR>==" {})
+(nnoremap "<leader>w" ":set wrap!<CR>")
+
+;; Mremapve text up and down
+(vnoremap "<A-j>" ":m .+1<CR>==")
+(vnoremap "<A-k>" ":m .-2<CR>==")
 
 ;; Stay in indent mode
-(utils.keymap :v "<" "<gv" {})
-(utils.keymap :v ">" ">gv" {})
+(vnoremap "<" "<gv")
+(vnoremap ">" ">gv")
 
 ;; Visual block, Move text up and down
-(utils.keymap "x" "J" ":move '>+1<CR>gv-gv" {})
-(utils.keymap "x" "K" ":move '<-2<CR>gv-gv" {})
-(utils.keymap "x" "<A-j>" ":move '>+1<CR>gv-gv" {})
-(utils.keymap "x" "<A-k>" ":move '<-2<CR>gv-gv" {})
+(xnoremap "J" ":move '>+1<CR>gv-gv")
+(xnoremap "K" ":move '<-2<CR>gv-gv")
+(xnoremap "<A-j>" ":move '>+1<CR>gv-gv")
+(xnoremap "<A-k>" ":move '<-2<CR>gv-gv")
 
 ;; Better terminal navigation
-(utils.keymap "t" "<C-h>" "<C-\\><C-N><C-w>h" {})
-(utils.keymap "t" "<C-j>" "<C-\\><C-N><C-w>j" {})
-(utils.keymap "t" "<C-k>" "<C-\\><C-N><C-w>k" {})
-(utils.keymap "t" "<C-l>" "<C-\\><C-N><C-w>l" {})
+(tnoremap "<C-h>" "<C-\\><C-N><C-w>h")
+(tnoremap "<C-j>" "<C-\\><C-N><C-w>j")
+(tnoremap "<C-k>" "<C-\\><C-N><C-w>k")
+(tnoremap "<C-l>" "<C-\\><C-N><C-w>l")
 
 ;; Telescope
-(utils.keymap :n :<leader>b ":Telescope buffers<CR>")
-(utils.keymap :n :<leader>ff ":Telescope current_buffer_fuzzy_find<CR>")
-(utils.keymap :n :<leader>: ":Telescope commands<CR>")
-(utils.keymap :n :<leader><space> ":Telescope find_files<CR>")
-(utils.keymap :n :<leader>fb ":Telescope file_browser<CR>")
-(utils.keymap :n :<leader>so ":lua require'telescope.builtin'.diagnostics{}<CR>")
-(utils.keymap :n :<leader>sop ":Telescope treesitter<CR>")
+(nnoremap "<leader>b" ":Telescope buffers<CR>")
+(nnoremap "<leader>ff" ":Telescope current_buffer_fuzzy_find<CR>")
+(nnoremap "<leader>:" ":Telescope commands<CR>")
+(nnoremap "<leader><space>" ":Telescope find_files<CR>")
+(nnoremap "<leader>fb" ":Telescope file_browser<CR>")
+(nnoremap "<leader>so" ":Telescope diagnostics<CR>")
+(nnoremap "<leader>sop" ":Telescope treesitter<CR>")
 
 ;; Truezen with Twilight!
-(utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
+(nnoremap "<leader>z" ":TZAtaraxis<CR> :Twilight<CR>")
 
-;; (utils.keymap :n "<up>" "<nop>")
-;; (utils.keymap :n "<down>" "<nop>")
-;; (utils.keymap :n "<left>" "<nop>")
-;; (utils.keymap :n "<right>" "<nop>")
+;; LSP keybinds
+(nnoremap "<leader>e" "<cmd>lua vim.diagnostic.open_float()<CR>")
+(nnoremap "<leader>[" "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+(nnoremap "<leader>]" "<cmd>lua vim.diagnostic.goto_next()<CR>")
+(nnoremap "<leader>q" "<cmd>lua vim.diagnostic.setloclist()<CR>")
+
+(nnoremap "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" :buffer)
+(nnoremap "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" :buffer)
+(nnoremap "K" "<cmd>lua vim.lsp.buf.hover()<CR>" :buffer)
+(nnoremap "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>" :buffer)
+(nnoremap "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>" :buffer)
+(nnoremap "<space>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" :buffer)
+(nnoremap "<space>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" :buffer)
+(nnoremap "<space>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" :buffer)
+(nnoremap "<space>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>" :buffer)
+(nnoremap "<space>rn" "<cmd>lua vim.lsp.buf.rename()<CR>" :buffer)
+(nnoremap "<space>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>" :buffer)
+(nnoremap "gr" "<cmd>lua vim.lsp.buf.references()<CR>" :buffer)
+(nnoremap "<space>f" "<cmd>lua vim.lsp.buf.formatting()<CR>" :buffer)
+
+;; (nno- "<up>" "<nop>")
+;; (nno- "<down>" "<nop>")
+;; (nno- "<left>" "<nop>")
+;; (nno- "<right>" "<nop>")

@@ -6,22 +6,24 @@
         : event} (require :cmp))
 
 (local types (require :cmp.types))
-(local under-compare (require :cmp-under-comparator))
 (local {: insert} table)
+
+(local friendly_snippets (require :luasnip.loaders.from_vscode))
+( friendly_snippets.load)
 
 ;; and of course some settings
 (set! completeopt [:menu :menuone :noselect])
 
 (setup {:preselect types.cmp.PreselectMode.None
-        :formatting {;; :fields [cmp.ItemField.Kind
-                     ;;          cmp.ItemField.Abbr
-                     ;;          cmp.ItemField.Menu
-                     :format (fn [entry vim-item]
+        :formatting {:format (fn [entry vim-item]
                                (set vim-item.menu
                                     (. {:nvim_lsp :lsp
-                                        :Path :pth
+                                        :Path :path
                                         :treesitter :trs
-                                        :conjure :cj}
+                                        :luasnip :snip
+                                        :buffer :buf
+                                        :conjure :cj
+                                        :cmdline :cmd}
                                        entry.source.name))
                                (set vim-item.kind
                                     (. {:Text ""
@@ -63,5 +65,21 @@
                                     [:i :s])
                   :<space> (mapping.confirm {:select false})}
         :sources [{:name :nvim_lsp}
-                  {:name :conjure}
-                  {:name :path}]})
+                  {:name :luasnip}
+                  {:name :path}
+                  {:name :buffer}
+                  {:name :conjure}]
+        :sorting {:comparators [compare.offset
+                                compare.exact
+                                compare.score
+                                compare.kind
+                                compare.sort_text
+                                compare.length
+                                compare.order]}})
+
+((. (. (require :cmp) :setup) :cmdline) ":"
+                                        {:sources {1 {:name :cmdline
+                                                      :keyword_length 2}}})
+
+((. (. (require :cmp) :setup) :cmdline) "/" {:sources {1 {:name :buffer}}})
+((. (. (require :cmp) :setup) :cmdline) "?" {:sources {1 {:name :buffer}}})

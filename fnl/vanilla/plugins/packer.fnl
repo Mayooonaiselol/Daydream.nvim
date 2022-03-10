@@ -7,10 +7,10 @@
                  :open_cmd "65vnew \\[packer\\]"
                  :item_sym ""
                  :header_lines 2
-                 :title " packer.nvim"
-                 :working_sym " "
-                 :error_sym ""
-                 :done_sym ""
+                 :title " packer.nvim"
+                 :working_sym ""
+                 :error_sym ""
+                 :done_sym ""
                  :removed_sym ""
                  :moved_sym " "
                  :show_all_info false}

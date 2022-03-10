@@ -10,7 +10,7 @@
 (cmd (.. "hi MatchParen gui=underline guibg=" colors.base01))
 
 ;; transparent vertical splits
-(cmd (.. "hi VertSplit guibg=bg guifg=bg"))
+;; (cmd (.. "hi VertSplit guibg=bg guifg=bg"))
 
 ;; bold various syntax & TODO
 (cmd (.. "hi Todo gui=bold"))
