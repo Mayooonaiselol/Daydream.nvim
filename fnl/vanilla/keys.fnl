@@ -1,10 +1,23 @@
 (module vanilla.keys
   {autoload {a aniseed.core
              nvim aniseed.nvim
-             utils vanilla.utils
              wk which-key
              treesitter-selection nvim-treesitter.incremental_selection
              lspactions lspactions}})
+
+(import-macros {: map-
+                : ino-
+                : im-
+                : vno-
+                : vm-
+                : tno-
+                : tm-
+                : cno-
+                : cm-
+                : nno-
+                : nm-
+                : xm-
+                : xno-} :vanilla.macros)
 
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader " ")
@@ -14,83 +27,85 @@
 ;; (set vim.g.AutoPairsShortcutBackInsert "<M-b>")
 
 ;; Easier command line mode
-(utils.keymap :n ";" ":")
-(utils.keymap :v ";" ":")
+(nno- ";" ":")
+(vno- ";" ":")
 
 ;; Easy movement between splits
-(utils.keymap :n :<C-h> :<C-w>h {})
-(utils.keymap :n :<C-j> :<C-w>j {})
-(utils.keymap :n :<C-k> :<C-w>k {})
-(utils.keymap :n :<C-l> :<C-w>l {})
+(nno- "<C-h>" "<C-w>h")
+(nno- "<C-j>" "<C-w>j")
+(nno- "<C-k>" "<C-w>k")
+(nno- "<C-l>" "<C-w>l")
 
 ;; Easy resizing splits
-(utils.keymap :n :<C-Up> ":resize +2<CR>" {})
-(utils.keymap :n :<C-Down> ":resize -2<CR>" {})
-(utils.keymap :n :<C-Left> ":vertical resize -2<CR>" {})
-(utils.keymap :n :<C-Right> ":vertical resize +2<CR>" {})
+(nno- "<C-Up>" ":resize +2<CR>")
+(nno- "<C-Down>" ":resize -2<CR>")
+(nno- "<C-Left>" ":vertical resize -2<CR>")
+(nno- "<C-Right>" ":vertical resize +2<CR>")
 
 ;; Switching buffers
-(utils.keymap :n :<S-l> ":bnext<CR>" {})
-(utils.keymap :n :<S-h> ":bprevious<CR>" {})
+(nno- "<S-l>" ":bnext<CR>")
+(nno- "<S-h>" ":bprevious<CR>")
 
-(utils.keymap :i :jk :<esc>)
-(utils.keymap :c :jk :<c-c>)
-(utils.keymap :t :jk :<c-\><c-n>)
-(utils.keymap :n :<esc> :<esc><cmd>noh<cr>)
-(utils.keymap :n "<leader>w" ":set wrap!<CR>")
+;; Easy escape
+(ino- "jk" "<esc>")
+(cno- "jk" "<c-c>")
+(nno- "<esc>" "<esc><cmd>noh<CR>")
+
+(nno- "<leader>w" ":set wrap!<CR>")
 
 ;; Move text up and down
-(utils.keymap :v :<A-j> ":m .+1<CR>==" {})
-(utils.keymap :v :<A-k> ":m .-2<CR>==" {})
+(vno- "<A-j>" ":m .+1<CR>==")
+(vno- "<A-k>" ":m .-2<CR>==")
 
 ;; Stay in indent mode
-(utils.keymap :v "<" "<gv" {})
-(utils.keymap :v ">" ">gv" {})
+(vno- "<" "<gv")
+(vno- ">" ">gv")
 
 ;; Visual block, Move text up and down
-(utils.keymap "x" "J" ":move '>+1<CR>gv-gv" {})
-(utils.keymap "x" "K" ":move '<-2<CR>gv-gv" {})
-(utils.keymap "x" "<A-j>" ":move '>+1<CR>gv-gv" {})
-(utils.keymap "x" "<A-k>" ":move '<-2<CR>gv-gv" {})
+(xno- "J" ":move '>+1<CR>gv-gv")
+(xno- "K" ":move '<-2<CR>gv-gv")
+(xno- "<A-j>" ":move '>+1<CR>gv-gv")
+(xno- "<A-k>" ":move '<-2<CR>gv-gv")
 
 ;; Better terminal navigation
-(utils.keymap "t" "<C-h>" "<C-\\><C-N><C-w>h" {})
-(utils.keymap "t" "<C-j>" "<C-\\><C-N><C-w>j" {})
-(utils.keymap "t" "<C-k>" "<C-\\><C-N><C-w>k" {})
-(utils.keymap "t" "<C-l>" "<C-\\><C-N><C-w>l" {})
+(tno- "<C-h>" "<C-\\><C-N><C-w>h")
+(tno- "<C-j>" "<C-\\><C-N><C-w>j")
+(tno- "<C-k>" "<C-\\><C-N><C-w>k")
+(tno- "<C-l>" "<C-\\><C-N><C-w>l")
 
 ;; Telescope
-(utils.keymap :n :<leader>b ":Telescope buffers<CR>")
-(utils.keymap :n :<leader>ff ":Telescope current_buffer_fuzzy_find<CR>")
-(utils.keymap :n :<leader>: ":Telescope commands<CR>")
-(utils.keymap :n :<leader><space> ":Telescope find_files<CR>")
-(utils.keymap :n :<leader>fb ":Telescope file_browser<CR>")
-(utils.keymap :n :<leader>so ":lua require'telescope.builtin'.diagnostics{}<CR>")
-(utils.keymap :n :<leader>sop ":Telescope treesitter<CR>")
+(nno- "<leader>b" ":Telescope buffers<CR>")
+(nno- "<leader>ff" ":Telescope current_buffer_fuzzy_find<CR>")
+(nno- "<leader>:" ":Telescope commands<CR>")
+(nno- "<leader><space>" ":Telescope find_files<CR>")
+(nno- "<leader>fb" ":Telescope file_browser<CR>")
+(nno- "<leader>so" ":Telescope diagnostics<CR>")
+(nno- "<leader>sop" ":Telescope treesitter<CR>")
 
 ;; Truezen with Twilight!
-(utils.keymap :n :<leader>z ":TZAtaraxis<CR> :Twilight<CR>")
+(nno- "<leader>z" ":TZAtaraxis<CR> :Twilight<CR>")
 
 ;; LSP keybinds
-(utils.keymap :n "<space>e" "<cmd>lua vim.diagnostic.open_float()<CR>" {})
-(utils.keymap :n "<space>[" "<cmd>lua vim.diagnostic.goto_prev()<CR>" {})
-(utils.keymap :n "<space>]" "<cmd>lua vim.diagnostic.goto_next()<CR>" {})
-(utils.keymap :n "<space>q" "<cmd>lua vim.diagnostic.setloclist()<CR>" {})
+(nno- "<leader>e" "<cmd>lua vim.diagnostic.open_float()<CR>")
+(nno- "<leader>[" "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+(nno- "<leader>]" "<cmd>lua vim.diagnostic.goto_next()<CR>")
+(nno- "<leader>q" "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
-;; (utils.keymap :n "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" {:buffer})
-;; (utils.keymap :n "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" {:buffer})
-;; (utils.keymap :n "K" "<cmd>lua vim.lsp.buf.hover()<CR>" {:buffer})
-;; (utils.keymap :n "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>" {:buffer})
-;; (utils.keymap :n "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>" {:buffer})
-;; (utils.keymap :n "<space>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" {:buffer})
-;; (utils.keymap :n "<space>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" {:buffer})
-;; (utils.keymap :n "<space>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" {:buffer})
-;; (utils.keymap :n "<space>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>" {:buffer})
-;; (utils.keymap :n "<space>rn" "<cmd>lua vim.lsp.buf.rename()<CR>" {:buffer})
-;; (utils.keymap :n "<space>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>" {:buffer})
-;; (utils.keymap :n "gr" "<cmd>lua vim.lsp.buf.references()<CR>" {:buffer})
-;; (utils.keymap :n "<space>f" "<cmd>lua vim.lsp.buf.formatting()<CR>" {:buffer})
-;; (utils.keymap :n "<up>" "<nop>")
-;; (utils.keymap :n "<down>" "<nop>")
-;; (utils.keymap :n "<left>" "<nop>")
-;; (utils.keymap :n "<right>" "<nop>")
+(nno- "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" :buffer)
+(nno- "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" :buffer)
+(nno- "K" "<cmd>lua vim.lsp.buf.hover()<CR>" :buffer)
+(nno- "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>" :buffer)
+(nno- "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>" :buffer)
+(nno- "<space>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" :buffer)
+(nno- "<space>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" :buffer)
+(nno- "<space>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" :buffer)
+(nno- "<space>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>" :buffer)
+(nno- "<space>rn" "<cmd>lua vim.lsp.buf.rename()<CR>" :buffer)
+(nno- "<space>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>" :buffer)
+(nno- "gr" "<cmd>lua vim.lsp.buf.references()<CR>" :buffer)
+(nno- "<space>f" "<cmd>lua vim.lsp.buf.formatting()<CR>" :buffer)
+
+;; (nno- "<up>" "<nop>")
+;; (nno- "<down>" "<nop>")
+;; (nno- "<left>" "<nop>")
+;; (nno- "<right>" "<nop>")

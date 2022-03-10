@@ -33,9 +33,318 @@
 (fn empty? [xs]
   (= 0 (length xs)))
 
-(fn noremap [mode from to]
-  "Sets a mapping with {:noremap true}."
-  (vim.api.nvim_set_keymap mode from to {:noremap true}))
+; nnoremap
+(fn nno- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is true
+    (tset tab :noremap true)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :n ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :n ,left ,right ,tab)))))
+
+; inoremap
+(fn ino- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is true
+    (tset tab :noremap true)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :i ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :i ,left ,right ,tab)))))
+
+; vnoremap
+(fn vno- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is true
+    (tset tab :noremap true)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :v ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :v ,left ,right ,tab)))))
+
+; tnoremap
+(fn tno- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is true
+    (tset tab :noremap true)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :t ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :t ,left ,right ,tab)))))
+
+; cnoremap
+(fn cno- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is true
+    (tset tab :noremap true)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :c ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :c ,left ,right ,tab)))))
+
+; xnoremap
+(fn xno- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is true
+    (tset tab :noremap true)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :x ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :x ,left ,right ,tab)))))
+
+; map
+(fn map- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flg
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 "" ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap "" ,left ,right ,tab)))))
+
+; nmap
+(fn nm- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :n ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :n ,left ,right ,tab)))))
+
+; vmap
+(fn vm- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :v ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :v ,left ,right ,tab)))))
+
+; imap
+(fn im- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :i ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :i ,left ,right ,tab)))))
+
+; tmap
+(fn tm- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :t ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :t ,left ,right ,tab)))))
+
+; cmap
+(fn cm- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :c ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :c ,left ,right ,tab)))))
+
+; xmap
+(fn xm- [left right ...]
+  (let [left left
+        right right
+        output []
+        tab []]
+    (var isBuffer false) ; so we don't have to specify not in a buffer
+    ; set that noremap is false
+    (tset tab :noremap false)
+    ; set each option to be true
+    (each [key val (ipairs [...])]
+      ; buffer isn't an option for nvim_set_keymap
+      ; if we see buffer, set flag
+      ; else just set the option to true
+      (if (= val :buffer)
+        (do (set isBuffer true))
+        (do (tset tab val true))))
+    ; if buffer is set, use a buffer map
+    (if (= isBuffer true)
+      (do
+        `(vim.api.nvim_buf_set_keymap 0 :x ,left ,right ,tab))
+      (do
+        `(vim.api.nvim_set_keymap :x ,left ,right ,tab)))))
+
 
 (fn fn? [x]
   "Returns whether the parameter(s) is a function.
@@ -297,7 +606,19 @@
  : rock!
  : packer-setup!
  : vlua
- : noremap
+ :map- map-
+ :ino- ino-
+ :im- im-
+ :vno- vno-
+ :vm- vm-
+ :tno- tno-
+ :tm- tm-
+ :cno- cno-
+ :cm- cm-
+ :nno- nno-
+ :nm- nm-
+ :xno- xno-
+ :xm- xm-
  :let! let!-mult
  :set! set!-mult
  :local-set! local-set!-mult}
