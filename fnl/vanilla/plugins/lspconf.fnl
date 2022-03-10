@@ -37,3 +37,14 @@
                                         ((. (require :cmp_nvim_lsp)
                                             :update_capabilities) (vim.lsp.protocol.make_client_capabilities)))
                                    (server:setup opts))))
+
+;; (fn ensure-servers []
+;;   (each [name _ (ipairs servers)]
+;;     (local (found server) (lsp_installer.get_server name))
+;;     (when (and found (not (server:is_installed)))
+;;       (print (.. "Installing " name))
+;;       (server:install)))
+;;   (api.nvim_notify (.. "Installed " (table.concat (vim.tbl_keys servers) "\n"))
+;;                    vim.log.levels.INFO {:icon " " :title :nvim-lsp-installer}))
+;;
+;; (ensure-servers)

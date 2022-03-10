@@ -8,11 +8,23 @@ end
 
 -- Bootstrap essential plugins required for installing and loading the rest.
 ensure("wbthomason", "packer.nvim")
-ensure("Olical", "aniseed")
 ensure("lewis6991", "impatient.nvim")
 
 -- Load impatient which pre-compiles and caches Lua modules.
 require("impatient")
 
--- Enable Aniseed's automatic compilation and loading of Fennel source code.
-vim.g["aniseed#env"] = {module = "vanilla.init"}
+-- global variable to set the user's fennel compiler
+fennel_compiler = "aniseed"
+
+if fennel_compiler == "aniseed" then
+    ensure("Olical", "aniseed")
+    vim.g["aniseed#env"] = {module = "vanilla.init"}
+elseif fennel_compiler == "hotpot" then
+    ensure("rktjmp", "hotpot.nvim")
+    require("hotpot").setup({
+       provide_require_fennel = true,
+     })
+    require("vanilla")
+else
+    error("Unknown compiler")
+end

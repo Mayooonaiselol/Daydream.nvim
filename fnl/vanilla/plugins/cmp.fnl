@@ -6,7 +6,6 @@
         : event} (require :cmp))
 
 (local types (require :cmp.types))
-(local under-compare (require :cmp-under-comparator))
 (local {: insert} table)
 
 (local friendly_snippets (require :luasnip.loaders.from_vscode))
@@ -19,11 +18,12 @@
         :formatting {:format (fn [entry vim-item]
                                (set vim-item.menu
                                     (. {:nvim_lsp :lsp
-                                        :Path :pth
+                                        :Path :path
                                         :treesitter :trs
-                                        :conjure :cj
                                         :luasnip :snip
-                                        :buffer :buf}
+                                        :buffer :buf
+                                        :conjure :cj
+                                        :cmdline :cmd}
                                        entry.source.name))
                                (set vim-item.kind
                                     (. {:Text ""
@@ -65,15 +65,21 @@
                                     [:i :s])
                   :<space> (mapping.confirm {:select false})}
         :sources [{:name :nvim_lsp}
-                  {:name :conjure}
                   {:name :luasnip}
                   {:name :path}
-                  {:name :buffer}]
+                  {:name :buffer}
+                  {:name :conjure}]
         :sorting {:comparators [compare.offset
                                 compare.exact
                                 compare.score
-                                under-compare.under
                                 compare.kind
                                 compare.sort_text
                                 compare.length
                                 compare.order]}})
+
+((. (. (require :cmp) :setup) :cmdline) ":"
+                                        {:sources {1 {:name :cmdline
+                                                      :keyword_length 2}}})
+
+((. (. (require :cmp) :setup) :cmdline) "/" {:sources {1 {:name :buffer}}})
+((. (. (require :cmp) :setup) :cmdline) "?" {:sources {1 {:name :buffer}}})
