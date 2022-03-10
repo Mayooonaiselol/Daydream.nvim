@@ -34,7 +34,7 @@
   (= 0 (length xs)))
 
 ; nnoremap
-(fn nno- [left right ...]
+(fn nnoremap [left right ...]
   (let [left left
         right right
         output []
@@ -58,7 +58,7 @@
         `(vim.api.nvim_set_keymap :n ,left ,right ,tab)))))
 
 ; inoremap
-(fn ino- [left right ...]
+(fn inoremap [left right ...]
   (let [left left
         right right
         output []
@@ -82,7 +82,7 @@
         `(vim.api.nvim_set_keymap :i ,left ,right ,tab)))))
 
 ; vnoremap
-(fn vno- [left right ...]
+(fn vnoremap [left right ...]
   (let [left left
         right right
         output []
@@ -106,7 +106,7 @@
         `(vim.api.nvim_set_keymap :v ,left ,right ,tab)))))
 
 ; tnoremap
-(fn tno- [left right ...]
+(fn tnoremap [left right ...]
   (let [left left
         right right
         output []
@@ -130,7 +130,7 @@
         `(vim.api.nvim_set_keymap :t ,left ,right ,tab)))))
 
 ; cnoremap
-(fn cno- [left right ...]
+(fn cnoremap [left right ...]
   (let [left left
         right right
         output []
@@ -154,7 +154,7 @@
         `(vim.api.nvim_set_keymap :c ,left ,right ,tab)))))
 
 ; xnoremap
-(fn xno- [left right ...]
+(fn xnoremap [left right ...]
   (let [left left
         right right
         output []
@@ -178,7 +178,7 @@
         `(vim.api.nvim_set_keymap :x ,left ,right ,tab)))))
 
 ; map
-(fn map- [left right ...]
+(fn map [left right ...]
   (let [left left
         right right
         output []
@@ -202,7 +202,7 @@
         `(vim.api.nvim_set_keymap "" ,left ,right ,tab)))))
 
 ; nmap
-(fn nm- [left right ...]
+(fn nmap [left right ...]
   (let [left left
         right right
         output []
@@ -226,7 +226,7 @@
         `(vim.api.nvim_set_keymap :n ,left ,right ,tab)))))
 
 ; vmap
-(fn vm- [left right ...]
+(fn vmap [left right ...]
   (let [left left
         right right
         output []
@@ -250,7 +250,7 @@
         `(vim.api.nvim_set_keymap :v ,left ,right ,tab)))))
 
 ; imap
-(fn im- [left right ...]
+(fn imap [left right ...]
   (let [left left
         right right
         output []
@@ -274,7 +274,7 @@
         `(vim.api.nvim_set_keymap :i ,left ,right ,tab)))))
 
 ; tmap
-(fn tm- [left right ...]
+(fn tmap [left right ...]
   (let [left left
         right right
         output []
@@ -298,7 +298,7 @@
         `(vim.api.nvim_set_keymap :t ,left ,right ,tab)))))
 
 ; cmap
-(fn cm- [left right ...]
+(fn cmap [left right ...]
   (let [left left
         right right
         output []
@@ -322,7 +322,7 @@
         `(vim.api.nvim_set_keymap :c ,left ,right ,tab)))))
 
 ; xmap
-(fn xm- [left right ...]
+(fn xmap [left right ...]
   (let [left left
         right right
         output []
@@ -606,19 +606,19 @@
  : rock!
  : packer-setup!
  : vlua
- :map- map-
- :ino- ino-
- :im- im-
- :vno- vno-
- :vm- vm-
- :tno- tno-
- :tm- tm-
- :cno- cno-
- :cm- cm-
- :nno- nno-
- :nm- nm-
- :xno- xno-
- :xm- xm-
+ :map map
+ :inoremap inoremap
+ :imap imap
+ :vnoremap vnoremap
+ :vmap vmap
+ :tnoremap tnoremap
+ :tmap tmap
+ :cnoremap cnoremap
+ :cmap cmap
+ :nnoremap nnoremap
+ :nmap nmap
+ :xnoremap xnoremap
+ :xmap xmap
  :let! let!-mult
  :set! set!-mult
  :local-set! local-set!-mult}
