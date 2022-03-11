@@ -8,10 +8,10 @@
 
 <div align="center">
 
-[![License](https://img.shields.io/github/license/shaunsingh/nyoom.nvim?style=flat-square)](https://mit-license.org/)
-[![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.6.1-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
-[![GitHub Issues](https://img.shields.io/github/issues/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Issues&color=8abeb7)](https://github.com/Mayooonaiselol/Daydream.nvim/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/Mayooonaiselol/Daydream.nvim.svg?style=flat-square&label=Last%20Commit&color=0070cf)](https://github.com/Mayooonaiselol/Daydream.nvim/pulse)
+[![Stars](https://img.shields.io/github/stars/Mayooonaiselol/Daydream.nvim?color=%23b66467&style=for-the-badge)](https://github.com/Mayooonaiselol/Daydream.nvim/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/Mayooonaiselol/Daydream.nvim?color=%238c977d&style=for-the-badge)](https://github.com/Mayooonaiselol/Daydream.nvim/issues)
+[![Forks](https://img.shields.io/github/forks/Mayooonaiselol/Daydream.nvim?color=%23d9bc8c&style=for-the-badge)](https://github.com/Mayooonaiselol/Daydream.nvim/network/members)
+[![License](https://img.shields.io/github/license/Mayooonaiselol/Daydream.nvim?color=%238da3b9&style=for-the-badge)](https://mit-license.org/)
 
 </div>
 
@@ -19,7 +19,7 @@ WIP! will be finished soon
 
 ## About
 
-neovim pre-built configs (ready to use), works on neovim 0.6.0 and later versions
+neovim pre-built configs (ready to use), works on neovim 0.6.1 and later.
 
 ## Showcase [todo: add upto date pictures]
 
@@ -59,7 +59,6 @@ Install the following dependencies:
 - nodejs (optional, for copilot)
 - fennel + fnlfmt (not required, but recommended)
 - font with nerdfont icons
-- sqlite
 - build-tools (optional, if errors occur)
 
 Linux:
@@ -74,7 +73,7 @@ git clone https://github.com/Mayooonaiselol/Daydream.git Appdata\Local\nvim\ --d
 
 ## Todo
 
-- Add more, useful plugins if needed...Too many added, cleanup needed
+- Add more, useful plugins if needed...Too many added, cleanup needed...done
 - fix errors...Done
 - add more keybinds
 - add plugin configs...Mostly Done

@@ -39,8 +39,7 @@
                        (pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
                        (pack :hrsh7th/cmp-path {:after :nvim-cmp})
                        (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
-                       (pack :hrsh7th/cmp-buffer {:after :nvim-cmp})
-                       (pack :hrsh7th/cmp-cmdline {:after :nvim-cmp})]})
+                       (pack :hrsh7th/cmp-buffer {:after :nvim-cmp})]})
 
 (use-plug! :neovim/nvim-lspconfig
            {:config! :lspconf
