@@ -23,7 +23,8 @@
                                    :preview_cutoff 120}
                    :use_less true
                    :set_env {:COLORTERM :truecolor}
-                   :dynamic_preview_title true}})
+                   :dynamic_preview_title true}
+        :pickers {:find_files {:hidden true}}})
 
 ;; load our extensions
-((. (require :telescope) :load_extension) "file_browser")
+((. (require :telescope) :load_extension) :fzf)
