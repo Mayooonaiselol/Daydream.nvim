@@ -53,22 +53,28 @@
 (use-plug! :norcalli/nvim-colorizer.lua {:config! :nvcolorizer})
 (use-plug! :L3MON4D3/LuaSnip {:requires :rafamadriz/friendly-snippets})
 
-;; (use-plug! :nvim-neorg/neorg
-;;               {:config! :neorg
-;;                :ft :norg
-;;                :after :nvim-treesitter})
+(use-plug! :nvim-neorg/neorg
+              {:config! :neorg
+               :ft :norg
+               :after :nvim-treesitter})
 
 (use-plug! :rcarriga/nvim-notify {:config (fn []
                                             (set vim.notify (require :notify))
                                             (local {: setup} (require :notify))
                                             (setup {:stages :slide
-                                                    :timeout 2500
+                                                    :timeout 4500
                                                     :minimum_width 50
                                                     :icons {:ERROR ""
                                                             :WARN ""
                                                             :INFO ""
                                                             :DEBUG ""
                                                             :TRACE "✎"}}))})
+
+(use-plug! :folke/trouble.nvim
+           {:cmd :TroubleToggle
+            :config (fn []
+                      (local {: setup} (require :trouble))
+                      (setup {:icons false}))})
 
 ;; Git stuff
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter :config! :gitsigns})
