@@ -15,47 +15,56 @@
                          (do
                            (pack :rktjmp/hotpot.nvim)))]})
 
+(use-plug! :nvim-lua/popup.nvim)
+(use-plug! :nvim-lua/plenary.nvim)
+
 (use-plug! :folke/which-key.nvim {:init :which-key})
-(use-plug! :lukas-reineke/indent-blankline.nvim {:config! :indentline})
+(use-plug! :lukas-reineke/indent-blankline.nvim {:config! :indentline :event :BufRead})
 (use-plug! :numToStr/Comment.nvim {:init :Comment})
 (use-plug! :windwp/nvim-autopairs {:init :nvim-autopairs})
 
 (use-plug! :nvim-lualine/lualine.nvim {:config! :lualine})
 (use-plug! :akinsho/bufferline.nvim {:config! :bufferline})
 
+;; will be removed after neovim-0.7.x released, would no longer be required
+(use-plug! :nathom/filetype.nvim)
+
 ;; Telescope
 (use-plug! :nvim-telescope/telescope.nvim
            {:after :telescope-fzf-native.nvim
             :config! :telescope
-            :requires [(pack :nvim-lua/popup.nvim)
-                       (pack :nvim-lua/plenary.nvim
-                             {:after :popup.nvim})
-                       (pack :nvim-telescope/telescope-fzf-native.nvim
+            :cmd :Telescope
+            :requires [(pack :nvim-telescope/telescope-fzf-native.nvim
                              {:run :make :after :plenary.nvim})]})
 
 (use-plug! :hrsh7th/nvim-cmp
-           {:config! :cmp
-            :requires [(pack :PaterJason/cmp-conjure {:after :conjure})
+           {:event :InsertEnter
+            :config! :cmp
+            :requires [(pack :PaterJason/cmp-conjure {:after :nvim-cmp})
                        (pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
                        (pack :hrsh7th/cmp-path {:after :nvim-cmp})
                        (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
                        (pack :hrsh7th/cmp-buffer {:after :nvim-cmp})]})
+
+(use-plug! :L3MON4D3/LuaSnip {:after :nvim-cmp
+                              :requires (pack :rafamadriz/friendly-snippets {:after :luasnip})})
 
 (use-plug! :neovim/nvim-lspconfig
            {:config! :lspconf
             :requires [:williamboman/nvim-lsp-installer
                        (pack :j-hui/fidget.nvim {:after :nvim-lspconfig :init :fidget})]})
 
-(use-plug! :nvim-treesitter/nvim-treesitter {:config! :treesitter})
+(use-plug! :nvim-treesitter/nvim-treesitter {:config! :treesitter
+                                             :requires (pack :nvim-treesitter/playground {:cmd :TSPlayground})})
+
 (use-plug! :RRethy/nvim-base16 {:config! :base16})
 (use-plug! :Pocco81/TrueZen.nvim {:cmd :TZAtaraxis :config! :truezen})
-(use-plug! :norcalli/nvim-colorizer.lua {:config! :nvcolorizer})
-(use-plug! :L3MON4D3/LuaSnip {:requires :rafamadriz/friendly-snippets})
+(use-plug! :norcalli/nvim-colorizer.lua {:config! :nvcolorizer :event :BufRead})
 
 (use-plug! :nvim-neorg/neorg
-              {:config! :neorg
-               :ft :norg
-               :after :nvim-treesitter})
+           {:config! :neorg
+            :ft :norg
+            :after :nvim-treesitter})
 
 (use-plug! :rcarriga/nvim-notify {:config (fn []
                                             (set vim.notify (require :notify))
