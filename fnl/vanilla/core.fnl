@@ -1,7 +1,7 @@
 (module vanilla.core
   {autoload {nvim aniseed.nvim}})
 
-(import-macros {: set! : cmd} :vanilla.macros)
+(import-macros {: set! : cmd : augroup : autocmd} :vanilla.macros)
 
 (let [built-ins [:netrw
                  :netrwPlugin
@@ -60,4 +60,8 @@
 (set! cursorline)
 
 ;; no line numbers in terminal
-(cmd "au TermOpen term://* setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal")
+(augroup terminalSettings
+         (autocmd TermOpen "term://*" "setlocal nonumber norelativenumber signcolumn=no | setfiletype terminal"))
+
+(augroup highlightOnYank
+         (autocmd TextYankPost * "silent! lua vim.highlight.on_yank()"))

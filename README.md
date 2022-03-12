@@ -77,5 +77,5 @@ git clone https://github.com/Mayooonaiselol/Daydream.git Appdata\Local\nvim\ --d
 - fix errors...Done
 - add more keybinds
 - add plugin configs...Mostly Done
-- lazy loading
+- lazy loading...Done
 - add documentation

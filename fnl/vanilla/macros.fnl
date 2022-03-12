@@ -279,6 +279,31 @@
       (do
         `(vim.api.nvim_set_keymap :x ,left ,right ,tab)))))
 
+; augroup
+(fn augroup [group ...]
+  ; set up augroup group autocmd!
+  (let [group (.. "augroup " (->str group) "\nautocmd!")]
+    `(do
+       (cmd ,group)
+       ; do the autocmd
+       (do
+         ,...)
+       ; close the autocmd group
+       (cmd "augroup END"))))
+
+; autocmd
+(fn autocmd [event filetype command]
+  (let [event (->str event)
+        command command]
+    ; check if the filetype is a regex
+    ; set to string first so its parsed as such
+    ; else just set to value of the filetype arg
+    (var ftOut (->str filetype))
+    (if (= ftOut "*")
+      (set ftOut "*")
+      (set ftOut filetype))
+    `(do
+      (cmd (.. "autocmd " ,event " " ,ftOut " " ,command)))))
 
 (fn fn? [x]
   "Returns whether the parameter(s) is a function.
@@ -538,6 +563,8 @@
  :nmap nmap
  :xnoremap xnoremap
  :xmap xmap
+ :augroup augroup
+ :autocmd autocmd
  :let! let!-mult
  :set! set!-mult
  :local-set! local-set!-mult}

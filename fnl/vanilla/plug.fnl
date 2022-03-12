@@ -40,7 +40,7 @@
 (use-plug! :hrsh7th/nvim-cmp
            {:event :InsertEnter
             :config! :cmp
-            :requires [(pack :PaterJason/cmp-conjure {:after :nvim-cmp})
+            :requires [(pack :PaterJason/cmp-conjure {:after :conjure})
                        (pack :hrsh7th/cmp-nvim-lsp {:after :nvim-cmp})
                        (pack :hrsh7th/cmp-path {:after :nvim-cmp})
                        (pack :saadparwaiz1/cmp_luasnip {:after :nvim-cmp})
