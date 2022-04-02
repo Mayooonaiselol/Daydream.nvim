@@ -55,6 +55,7 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 - [Neorg](https://github.com/nvim-neorg/neorg)
 - [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - [Trouble.nvim](https://github.com/folke/trouble.nvim)
+- [TSPlayground](https://github.com/nvim-treesitter/playground)
 
 ## Credits
 
