@@ -39,7 +39,21 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 
 ## Useful plugins used
 
-
+- which-key.nvim
+- indent-blankline.nvim
+- lualine
+- bufferline
+- Telescope
+- Comment.nvim
+- nvim-autopairs
+- treesitter
+- lspinstaller
+- nvim-cmp and Luasnip
+- truezen
+- nvim-colorizer.lua
+- Neorg
+- Gitsigns
+- Trouble.nvim
 
 ## Credits
 
@@ -49,23 +63,23 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 
 ## Showcase
 
-![img5](Screenshots/1648900820_grim.png)
+![img1](Screenshots/1648900820_grim.png)
 
 Notifications
 
-![img1](Screenshots/1648900691_grim.png)
+![img2](Screenshots/1648900691_grim.png)
 
 Telescope
 
-![img2](Screenshots/1648900716_grim.png)
+![img3](Screenshots/1648900716_grim.png)
 
 Focus mode (Truezen)
 
-![img3](Screenshots/1648900737_grim.png)
+![img4](Screenshots/1648900737_grim.png)
 
 Trouble.nvim and neovim LSP
 
-![img4](Screenshots/1648900771_grim.png)
+![img5](Screenshots/1648900771_grim.png)
 
 Completions
 
@@ -78,6 +92,10 @@ Neorg(not a default, just uncommment lines in plug.fnl to use it)
 TSPlayground showing treesitter info
 
 ![img8](Screenshots/1648901062_grim.png)
+
+which-key.nvim
+
+![img9](Screenshots/1648902063_grim.png)
 
 ## Install
 
