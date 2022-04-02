@@ -114,10 +114,9 @@
 
 ;; orgmode in neovim, uncomment the below lines if you want it
 
-;; (use-plug! :nvim-neorg/neorg
-;;            {:config! :neorg
-;;             :ft :norg
-;;             :after :nvim-treesitter})
+(use-plug! :nvim-neorg/neorg
+           {:config! :neorg
+            :after :nvim-treesitter})
 
 ;; Git stuff
 (use-plug! :lewis6991/gitsigns.nvim {:after :nvim-treesitter :config! :gitsigns})

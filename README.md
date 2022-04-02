@@ -16,8 +16,9 @@
 </div>
 
 [Skip to Installation](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#install)
+[Skip to Showcase](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#showcase)
 
-Neovim configuration for Emacs users, who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
+Neovim configuration useful for Emacs users who want to use neovim(but can also be used by others), who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
 This is an extended base config of https://github.com/shaunsingh/nyoom.nvim
 
@@ -43,19 +44,21 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 
 ## Showcase
 
-![img1](Screenshots/1645553362_grim.png)
+![img1](Screenshots/1648900691_grim.png)
 
-![img2](Screenshots/1645553466_grim.png)
+![img2](Screenshots/1648900716_grim.png)
 
-![img3](Screenshots/1645553551_grim.png)
+![img3](Screenshots/1648900737_grim.png)
 
-![img4](Screenshots/1645553627_grim.png)
+![img4](Screenshots/1648900771_grim.png)
 
-![img5](Screenshots/1645553678_grim.png)
+![img5](Screenshots/1648900820_grim.png)
 
-![img6](Screenshots/1645553737_grim.png)
+![img6](Screenshots/1648900879_grim.png)
 
-![img7](Screenshots/1645637956_grim.png)
+![img7](Screenshots/1648900931_grim.png)
+
+![img8](Screenshots/1648901062_grim.png)
 
 ## Install
 
