@@ -20,12 +20,13 @@
                                 :sections {:lualine_a {}
                                            :lualine_b {}
                                            :lualine_c {1 {1 :branch :icon ""}
-                                                       2 {1 :diff :colored false}
-                                                       3 {1 :diagnostics :diagnostics_color {:error {:fg colors.base04}
+                                                       2 {1 :filename}
+                                                       3 {1 :diff :colored false}
+                                                       4 {1 :diagnostics :diagnostics_color {:error {:fg colors.base04}
                                                                                              :warn {:fg colors.base04}
                                                                                              :hint {:fg colors.base04}
                                                                                              :info {:fg colors.base04}}}
-                                                       4 {1 (fn []
+                                                       5 {1 (fn []
                                                               (let [msg ""
                                                                     buf-ft (vim.api.nvim_buf_get_option 0 :filetype)
                                                                     clients (vim.lsp.get_active_clients)]
@@ -38,9 +39,7 @@
                                                                 msg))
                                                           :icon ""
                                                           :color {:fg colors.base04}}}
-                                           :lualine_x {1 :encoding
-                                                       2 :filename
-                                                       3 :location}
+                                           :lualine_x {1 :location}
                                            :lualine_y {}
                                            :lualine_z {}}
                                 :inactive_sections {:lualine_a {}

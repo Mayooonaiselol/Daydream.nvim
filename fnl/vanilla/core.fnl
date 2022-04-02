@@ -1,6 +1,3 @@
-(module vanilla.core
-  {autoload {nvim aniseed.nvim}})
-
 (import-macros {: set! : cmd : augroup : autocmd} :vanilla.macros)
 
 ;; This is going to be your introduction to the let! and set! macros
