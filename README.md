@@ -16,11 +16,12 @@
 </div>
 
 [Skip to Installation](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#install)
+
 [Skip to Showcase](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#showcase)
 
 Neovim configuration useful for Emacs users who want to use neovim(but can also be used by others), who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
-This is an extended base config of https://github.com/shaunsingh/nyoom.nvim
+This is a neovim config written in fennel, many parts of this config are based on https://github.com/shaunsingh/nyoom.nvim
 
 This awesome colourscheme used in these configs is https://github.com/Manas140/paradise
 
@@ -36,6 +37,10 @@ Everything happens in the `fnl/` folder.
 
 If you need any help, you can ask me at discord or join the [Conjure Discord](https://conjure.fun/discord)
 
+## Useful plugins used
+
+
+
 ## Credits
 
 - [shaunsingh](https://github.com/shaunsingh) for making nyoom.nvim and helping me out with fennel
@@ -44,19 +49,33 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 
 ## Showcase
 
+![img5](Screenshots/1648900820_grim.png)
+
+Notifications
+
 ![img1](Screenshots/1648900691_grim.png)
+
+Telescope
 
 ![img2](Screenshots/1648900716_grim.png)
 
+Focus mode (Truezen)
+
 ![img3](Screenshots/1648900737_grim.png)
+
+Trouble.nvim and neovim LSP
 
 ![img4](Screenshots/1648900771_grim.png)
 
-![img5](Screenshots/1648900820_grim.png)
+Completions
 
 ![img6](Screenshots/1648900879_grim.png)
 
+Neorg(not a default, just uncommment lines in plug.fnl to use it)
+
 ![img7](Screenshots/1648900931_grim.png)
+
+TSPlayground showing treesitter info
 
 ![img8](Screenshots/1648901062_grim.png)
 
