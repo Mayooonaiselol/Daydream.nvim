@@ -19,9 +19,20 @@ WIP! will be finished soon
 
 ## About
 
-neovim pre-built configs (ready to use), works on neovim 0.6.1 and later.
+Neovim configuration for Emacs users, who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
-## Showcase [todo: add upto date pictures]
+This is an extended base config of https://github.com/shaunsingh/nyoom.nvim
+
+Everything happens in the `fnl/` folder.
+
+- colors.fnl to define colourscheme
+- core.fnl to set neovim configs and autocmds
+- keys.fnl to set keybinds
+- plug.fnl to add plugins
+- macros.fnl to make configuring neovim easier (you are free to edit this if you know what it is)
+- `plugins/` to define plugin configs
+
+## Showcase
 
 Code completions
 
