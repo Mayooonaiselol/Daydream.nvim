@@ -28,12 +28,18 @@ Everything happens in the `fnl/` folder.
 - `core.fnl` to set neovim settings and autocmds
 - `keys.fnl` to set keybinds/mappings
 - `plug.fnl` to add and install plugins using packer.nvim
-- `macros.fnl` to define functions and make configuring easier, however I have added macros which can even work with neovim 0.6.1 and some other macros on top of the base config from nyoom.nvim (you are free to edit this if you know what it is)
+- `macros.fnl` to define functions and make configuring easier, I have added macros which can even work with neovim 0.6.1 and some other macros on top of the base config from nyoom.nvim (you are free to edit this if you know what it is)
 - `plugins/` to define plugin configs
 
-## Showcase
+If you need any help, you can ask me at discord or join the [Conjure Discord](https://conjure.fun/discord)
 
-Code completions
+## Credits
+
+- [shaunsingh](https://github.com/shaunsingh) for making nyoom.nvim and helping me out with fennel
+- [Manas](https://github.com/Manas140) for the eye-pleasing colourscheme and contributions for these configs
+- [pagankeymaster](https://github.com/pagankeymaster) for making a neovim config dictionary...
+
+## Showcase
 
 ![img1](Screenshots/1645553362_grim.png)
 
@@ -41,17 +47,11 @@ Code completions
 
 ![img3](Screenshots/1645553551_grim.png)
 
-Focused editing
-
 ![img4](Screenshots/1645553627_grim.png)
-
-Git plugins
 
 ![img5](Screenshots/1645553678_grim.png)
 
 ![img6](Screenshots/1645553737_grim.png)
-
-New! Lualine showing LSP stats
 
 ![img7](Screenshots/1645637956_grim.png)
 
@@ -59,33 +59,20 @@ New! Lualine showing LSP stats
 
 ### Dependencies
 
-The only dependencies are neovim-0.6.1+ and git.
+The only dependencies are neovim-0.6.1+, a font with nerdfont icons and git.
 
 ### Regular:
 
 Install the following dependencies: 
 - neovim-0.6.1+
 - ripgrep
-- nodejs (optional, for copilot)
+- nodejs (optional)
 - fennel + fnlfmt (not required, but recommended)
 - font with nerdfont icons
 - build-tools (optional, if errors occur)
 
-Linux:
+Install using the following command:
+
 ```bash
 git clone https://github.com/Mayooonaiselol/Daydream.git ~/.config/nvim --depth 1 && nvim +PackerSync
 ```
-
-Windows:
-```
-git clone https://github.com/Mayooonaiselol/Daydream.git Appdata\Local\nvim\ --depth 1; nvim +PackerSync
-```
-
-## Todo
-
-- Add more, useful plugins if needed...Too many added, cleanup needed...done
-- fix errors...Done
-- add more keybinds
-- add plugin configs...Mostly Done
-- lazy loading...Done
-- add documentation
