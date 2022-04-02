@@ -37,7 +37,7 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 
 - [shaunsingh](https://github.com/shaunsingh) for making nyoom.nvim and helping me out with fennel
 - [Manas](https://github.com/Manas140) for the eye-pleasing colourscheme and contributions for these configs
-- [pagankeymaster](https://github.com/pagankeymaster) for making a neovim config dictionary...
+- [keymaster](https://github.com/pagankeymaster) for making a neovim config dictionary...
 
 ## Showcase
 
