@@ -15,21 +15,20 @@
 
 </div>
 
-WIP! will be finished soon
-
-## About
-
 Neovim configuration for Emacs users, who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
 This is an extended base config of https://github.com/shaunsingh/nyoom.nvim
 
+This awesome colourscheme used in these configs is https://github.com/Manas140/paradise
+
 Everything happens in the `fnl/` folder.
 
-- colors.fnl to define colourscheme
-- core.fnl to set neovim configs and autocmds
-- keys.fnl to set keybinds
-- plug.fnl to add plugins
-- macros.fnl to make configuring neovim easier (you are free to edit this if you know what it is)
+- `init.fnl` to require fennel configs (not plugin configs, you have to define that in plug.fnl)
+- `colors.fnl` to define your colourscheme (current one used in the configs is paradise)
+- `core.fnl` to set neovim settings and autocmds
+- `keys.fnl` to set keybinds/mappings
+- `plug.fnl` to add and install plugins using packer.nvim
+- `macros.fnl` to define functions and make configuring easier, however I have added macros which can even work with neovim 0.6.1 and some other macros on top of the base config from nyoom.nvim (you are free to edit this if you know what it is)
 - `plugins/` to define plugin configs
 
 ## Showcase
