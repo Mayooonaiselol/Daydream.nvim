@@ -15,6 +15,8 @@
 
 </div>
 
+[Skip to Installation](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#install)
+
 Neovim configuration for Emacs users, who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
 This is an extended base config of https://github.com/shaunsingh/nyoom.nvim
