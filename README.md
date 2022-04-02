@@ -79,7 +79,7 @@ Focus mode (Truezen)
 
 Trouble.nvim and neovim LSP
 
-![img5](Screenshots/1648900771_grim.png)
+![img5](Screenshots/1648903199_grim.png)
 
 Completions
 
