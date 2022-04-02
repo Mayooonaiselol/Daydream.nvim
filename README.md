@@ -85,7 +85,7 @@ Completions
 
 ![img6](Screenshots/1648900879_grim.png)
 
-Neorg(not a default, just uncommment lines in plug.fnl to use it)
+Neorg(not a default, just uncomment lines in plug.fnl to use it)
 
 ![img7](Screenshots/1648900931_grim.png)
 
