@@ -21,9 +21,9 @@
 
 Neovim configuration useful for Emacs users who want to use neovim(but can also be used by others), who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
-This is a neovim config written in fennel, many parts of this config are based on https://github.com/shaunsingh/nyoom.nvim
+This is a neovim config written in fennel, many parts of this config are based on [nyoom.nvim](https://github.com/shaunsingh/nyoom.nvim)
 
-This awesome colourscheme used in these configs is https://github.com/Manas140/paradise
+This awesome colourscheme used in these configs is [paradise](https://github.com/Manas140/paradise)
 
 Everything happens in the `fnl/` folder.
 
@@ -39,21 +39,22 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 
 ## Useful plugins used
 
-- which-key.nvim
-- indent-blankline.nvim
-- lualine
-- bufferline
-- Telescope
-- Comment.nvim
-- nvim-autopairs
-- treesitter
-- lspinstaller
-- nvim-cmp and Luasnip
-- truezen
-- nvim-colorizer.lua
-- Neorg
-- Gitsigns
-- Trouble.nvim
+- [which-key.nvim](https://github.com/folke/which-key.nvim)
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [lualine](https://github.com/nvim-lualine/lualine.nvim)
+- [bufferline](https://github.com/akinsho/bufferline.nvim)
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [lspinstaller](https://github.com/williamboman/nvim-lsp-installer)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [Luasnip](https://github.com/L3MON4D3/LuaSnip)
+- [truezen](https://github.com/Pocco81/TrueZen.nvim)
+- [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
+- [Neorg](https://github.com/nvim-neorg/neorg)
+- [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- [Trouble.nvim](https://github.com/folke/trouble.nvim)
 
 ## Credits
 
