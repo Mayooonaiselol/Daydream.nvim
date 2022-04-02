@@ -15,6 +15,8 @@
 
 </div>
 
+![img1](Screenshots/1648900820_grim.png)
+
 [Skip to Installation](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#install)
 
 [Skip to Showcase](https://github.com/Mayooonaiselol/Daydream.nvim/tree/master#showcase)
@@ -23,7 +25,7 @@ Neovim configuration useful for Emacs users who want to use neovim(but can also 
 
 This is a neovim config written in fennel, parts of this config are based on [nyoom.nvim](https://github.com/shaunsingh/nyoom.nvim)
 
-This awesome colourscheme used in these configs is [paradise](https://github.com/Manas140/paradise)
+The awesome colourscheme used in these configs is [paradise](https://github.com/Manas140/paradise)
 
 Everything happens in the `fnl/` folder.
 
@@ -64,8 +66,6 @@ If you need any help, you can ask me at discord or join the [Conjure Discord](ht
 - [keymaster](https://github.com/pagankeymaster) for making a neovim config dictionary...
 
 ## Showcase
-
-![img1](Screenshots/1648900820_grim.png)
 
 Notifications
 
