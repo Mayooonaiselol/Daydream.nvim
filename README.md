@@ -21,7 +21,7 @@
 
 Neovim configuration useful for Emacs users who want to use neovim(but can also be used by others), who may find configuring neovim in fennel easier, works on neovim 0.6.1 and later.
 
-This is a neovim config written in fennel, many parts of this config are based on [nyoom.nvim](https://github.com/shaunsingh/nyoom.nvim)
+This is a neovim config written in fennel, parts of this config are based on [nyoom.nvim](https://github.com/shaunsingh/nyoom.nvim)
 
 This awesome colourscheme used in these configs is [paradise](https://github.com/Manas140/paradise)
 
