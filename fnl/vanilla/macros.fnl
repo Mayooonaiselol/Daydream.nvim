@@ -26,258 +26,18 @@
 (fn nil? [x]
   (= nil x))
 
+(fn ->bool [x]
+  (if x true false))
+
+(fn bool? [x]
+  (= :boolean (type x)))
+
 (fn includes? [xs x]
   (accumulate [is? false _ v (ipairs xs) :until is?]
     (= v x)))
 
 (fn empty? [xs]
   (= 0 (length xs)))
-
-; nnoremap
-(fn nnoremap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false) ; so we don't have to specify not in a buffer
-    ; set that noremap is true
-    (tset tab :noremap true)
-    ; set each option to be true
-    (each [key val (ipairs [...])]
-      ; buffer isn't an option for nvim_set_keymap
-      ; if we see buffer, set flag
-      ; else just set the option to true
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    ; if buffer is set, use a buffer map
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :n ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :n ,left ,right ,tab)))))
-
-; inoremap
-(fn inoremap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap true)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :i ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :i ,left ,right ,tab)))))
-
-; vnoremap
-(fn vnoremap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap true)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :v ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :v ,left ,right ,tab)))))
-
-; tnoremap
-(fn tnoremap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap true)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :t ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :t ,left ,right ,tab)))))
-
-; cnoremap
-(fn cnoremap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap true)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :c ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :c ,left ,right ,tab)))))
-
-; xnoremap
-(fn xnoremap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap true)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :x ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :x ,left ,right ,tab)))))
-
-; map
-(fn map [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false) ; so we don't have to specify not in a buffer
-    ; set that noremap is false
-    (tset tab :noremap false)
-    ; set each option to be true
-    (each [key val (ipairs [...])]
-      ; buffer isn't an option for nvim_set_keymap
-      ; if we see buffer, set flg
-      ; else just set the option to true
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    ; if buffer is set, use a buffer map
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 "" ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap "" ,left ,right ,tab)))))
-
-; nmap
-(fn nmap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap false)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :n ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :n ,left ,right ,tab)))))
-
-; vmap
-(fn vmap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap false)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :v ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :v ,left ,right ,tab)))))
-
-; imap
-(fn imap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap false)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :i ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :i ,left ,right ,tab)))))
-
-; tmap
-(fn tmap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap false)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :t ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :t ,left ,right ,tab)))))
-
-; cmap
-(fn cmap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap false)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :c ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :c ,left ,right ,tab)))))
-
-; xmap
-(fn xmap [left right ...]
-  (let [left left
-        right right
-        output []
-        tab []]
-    (var isBuffer false)
-    (tset tab :noremap false)
-    (each [key val (ipairs [...])]
-      (if (= val :buffer)
-        (do (set isBuffer true))
-        (do (tset tab val true))))
-    (if (= isBuffer true)
-      (do
-        `(vim.api.nvim_buf_set_keymap 0 :x ,left ,right ,tab))
-      (do
-        `(vim.api.nvim_set_keymap :x ,left ,right ,tab)))))
 
 ; augroup
 (fn augroup [group ...]
@@ -310,6 +70,98 @@
   A function is defined as any list with 'fn or 'hashfn as their first
   element."
   (and (list? x) (or (= `fn (head x)) (= `hashfn (head x)))))
+
+(λ map! [buffer? mode options lhs rhs]
+  "Defines a new mapping using the lua API.
+  It uses `vim.api.nvim_set_keymap` if buffer? is true and
+  `vim.api.nvim_buf_set_keymap` if buffer? is false.
+  If rhs is a function, a symbol or a list the expr option is set.
+  Supports all the options that the API supports."
+  (assert-compile (bool? buffer?) "expected boolean for buffer?" buffer?)
+  (assert-compile (str? mode) "expected string for mode" mode)
+  (assert-compile (tbl? options) "expected table for options" options)
+  (assert-compile (str? lhs) "expected string for lhs" lhs)
+  (assert-compile (str? rhs) "expected string for rhs" rhs)
+  (if buffer?
+    `(vim.api.nvim_buf_set_keymap 0 ,mode ,lhs ,rhs ,options)
+    `(vim.api.nvim_set_keymap ,mode ,lhs ,rhs ,options)))
+
+(λ map!-mult [[modes & options] lhs rhs ?desc]
+  "Defines a new mapping using the lua API.
+  It uses `vim.api.nvim_set_keymap` if buffer? is true and
+  `vim.api.nvim_buf_set_keymap` if buffer? is false.
+  If rhs is a function, a symbol or a list the expr option is set.
+  Supports all the options that the API supports."
+  (assert-compile (or (str? modes) (sym? modes)) "expected string or symbol for modes" modes)
+  (assert-compile (tbl? options) "expected table for options" options)
+  (assert-compile (str? lhs) "expected string for lhs" lhs)
+  (assert-compile (or (str? rhs) (list? rhs) (fn? rhs) (sym? rhs)) "expected string or list or function or symbol for rhs" rhs)
+  (assert-compile (or (nil? ?desc) (str? ?desc)) "expected string or nil for description" ?desc)
+  (let [modes (icollect [char (gmatch (->str modes) ".")] char)
+        options (collect [_ v (ipairs options)] (->str v) true)
+        buffer? (->bool (. options :buffer))
+        options (doto options (tset :buffer nil))
+        rhs (if (and (not (fn? rhs)) (list? rhs)) `#,rhs
+              rhs)
+        desc (if (and (not ?desc) (or (fn? rhs) (sym? rhs))) (view rhs)
+               ?desc)
+        options (if desc (doto options (tset :desc desc))
+                  options)
+        options (if (or (fn? rhs) (sym? rhs)) (doto options (tset :callback rhs))
+                  options)
+        options (if (or (fn? rhs) (sym? rhs)) (doto options (tset :expr true))
+                  options)
+        rhs (if (or (fn? rhs) (sym? rhs)) ""
+              rhs)
+        exprs (icollect [_ mode (ipairs modes)]
+                        (map! buffer? mode options lhs rhs ?desc))]
+    (if (> (length exprs) 1)
+      `(do ,(unpack exprs))
+      (unpack exprs))))
+
+(λ noremap! [[modes & options] lhs rhs ?description]
+  "Defines a new mapping using the lua API.
+  It uses `vim.api.nvim_set_keymap` if buffer? is true and
+  `vim.api.nvim_buf_set_keymap` if buffer? is false.
+  If rhs is a function, a symbol or a list the expr option is set.
+  Supports all the options that the API supports.
+  Automatically sets the `:noremap` option."
+  (let [options (doto options
+                      (insert :noremap))]
+    (map!-mult [modes (unpack options)] lhs rhs ?description)))
+
+(λ buf-map! [[modes & options] lhs rhs ?description]
+  "Defines a new mapping using the lua API.
+  It uses `vim.api.nvim_set_keymap` if buffer? is true and
+  `vim.api.nvim_buf_set_keymap` if buffer? is false.
+  If rhs is a function, a symbol or a list the expr option is set.
+  Supports all the options that the API supports.
+  Automatically sets the `:buffer` option."
+  (let [options (doto options
+                      (insert :buffer))]
+    (map!-mult [modes (unpack options)] lhs rhs ?description)))
+
+(λ buf-noremap! [[modes & options] lhs rhs ?description]
+  "Defines a new mapping using the lua API.
+  It uses `vim.api.nvim_set_keymap` if buffer? is true and
+  `vim.api.nvim_buf_set_keymap` if buffer? is false.
+  If rhs is a function, a sybol or a list the expr option is set.
+  Supports all the options that the API supports.
+  Automatically sets the `:noremap` option and the `:buffer` option."
+  (let [options (doto options
+                      (insert :noremap)
+                      (insert :buffer))]
+    (map!-mult [modes (unpack options)] lhs rhs ?description)))
+
+(λ link! [new to old]
+  "Defines a highlight group using the vim API.
+  e.g. (link! new => old)"
+  (assert-compile (sym? new) "expected symbol for new" new)
+  (assert-compile (= '=> to) "expected => for to" to)
+  (assert-compile (sym? old) "expected symbol for old" old)
+  (let [new (->str new)
+        old (->str old)]
+    `(vim.api.nvim_set_hl 0 ,new {:link ,old})))
 
 (λ gensym-checksum [...]
   "Generates a new symbol from the checksum of the object passed as
@@ -550,21 +402,13 @@
  : rock!
  : packer-setup!
  : vlua
- :map map
- :inoremap inoremap
- :imap imap
- :vnoremap vnoremap
- :vmap vmap
- :tnoremap tnoremap
- :tmap tmap
- :cnoremap cnoremap
- :cmap cmap
- :nnoremap nnoremap
- :nmap nmap
- :xnoremap xnoremap
- :xmap xmap
+ : link!
  :augroup augroup
  :autocmd autocmd
+ :map! map!-mult
+ : noremap!
+ : buf-map!
+ : buf-noremap!
  :let! let!-mult
  :set! set!-mult
  :local-set! local-set!-mult}
