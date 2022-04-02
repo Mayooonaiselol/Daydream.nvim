@@ -22,8 +22,7 @@
                                         :treesitter :trs
                                         :luasnip :snip
                                         :buffer :buf
-                                        :conjure :cj
-                                        :cmdline :cmd}
+                                        :conjure :cj}
                                        entry.source.name))
                                (set vim-item.kind
                                     (. {:Text ""
@@ -76,10 +75,3 @@
                                 compare.sort_text
                                 compare.length
                                 compare.order]}})
-
-((. (. (require :cmp) :setup) :cmdline) ":"
-                                        {:sources {1 {:name :cmdline
-                                                      :keyword_length 2}}})
-
-((. (. (require :cmp) :setup) :cmdline) "/" {:sources {1 {:name :buffer}}})
-((. (. (require :cmp) :setup) :cmdline) "?" {:sources {1 {:name :buffer}}})

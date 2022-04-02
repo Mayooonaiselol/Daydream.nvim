@@ -16,4 +16,9 @@
                  :show_all_info false}
        :git {:clone_timeout 6000}
        :auto_clean true
-       :compile_on_sync true})
+       :compile_on_sync true
+       :max_jobs 50
+       :depth 1
+       :disable_commands false
+       :auto_reload_compiled true
+       :log {:level :info}})

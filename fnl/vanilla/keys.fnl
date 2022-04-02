@@ -5,19 +5,7 @@
              treesitter-selection nvim-treesitter.incremental_selection
              lspactions lspactions}})
 
-(import-macros {: map
-                : inoremap
-                : imap
-                : vnoremap
-                : vmap
-                : tnoremap
-                : tmap
-                : cnoremap
-                : cmap
-                : nnoremap
-                : nmap
-                : xnoremap
-                : xmap} :vanilla.macros)
+(import-macros {: noremap! : buf-noremap!} :vanilla.macros)
 
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader " ")
@@ -27,85 +15,84 @@
 ;; (set vim.g.AutoPairsShortcutBackInsert "<M-b>")
 
 ;; Easier command line mode
-(nnoremap ";" ":")
-(vnoremap ";" ":")
+(noremap! [nv] ";" ":")
 
 ;; Easy movement between splits
-(nnoremap "<C-h>" "<C-w>h")
-(nnoremap "<C-j>" "<C-w>j")
-(nnoremap "<C-k>" "<C-w>k")
-(nnoremap "<C-l>" "<C-w>l")
+(noremap! [n] "<C-h>" "<C-w>h")
+(noremap! [n] "<C-j>" "<C-w>j")
+(noremap! [n] "<C-k>" "<C-w>k")
+(noremap! [n] "<C-l>" "<C-w>l")
 
 ;; Easy resizing splits
-(nnoremap "<C-Up>" ":resize +2<CR>")
-(nnoremap "<C-Down>" ":resize -2<CR>")
-(nnoremap "<C-Left>" ":vertical resize -2<CR>")
-(nnoremap "<C-Right>" ":vertical resize +2<CR>")
+(noremap! [n] "<C-Up>" ":resize +2<CR>")
+(noremap! [n] "<C-Down>" ":resize -2<CR>")
+(noremap! [n] "<C-Left>" ":vertical resize -2<CR>")
+(noremap! [n] "<C-Right>" ":vertical resize +2<CR>")
 
 ;; Switching buffers
-(nnoremap "<S-l>" ":bnext<CR>")
-(nnoremap "<S-h>" ":bprevious<CR>")
+(noremap! [n] "<S-l>" ":bnext<CR>")
+(noremap! [n] "<S-h>" ":bprevious<CR>")
 
 ;; Easy escape
-(inoremap "jk" "<esc>")
-(cnoremap "jk" "<c-c>")
-(nnoremap "<esc>" "<esc><cmd>noh<CR>")
+(noremap! [i] "jk" "<esc>")
+(noremap! [c] "jk" "<c-c>")
+(noremap! [n] "<esc>" "<esc><cmd>noh<CR>")
 
-(nnoremap "<leader>w" ":set wrap!<CR>")
+(noremap! [n] "<leader>w" ":set wrap!<CR>")
 
 ;; Mremapve text up and down
-(vnoremap "<A-j>" ":m .+1<CR>==")
-(vnoremap "<A-k>" ":m .-2<CR>==")
+(noremap! [v] "<A-j>" ":m .+1<CR>==")
+(noremap! [v] "<A-k>" ":m .-2<CR>==")
 
 ;; Stay in indent mode
-(vnoremap "<" "<gv")
-(vnoremap ">" ">gv")
+(noremap! [v] "<" "<gv")
+(noremap! [v] ">" ">gv")
 
 ;; Visual block, Move text up and down
-(xnoremap "J" ":move '>+1<CR>gv-gv")
-(xnoremap "K" ":move '<-2<CR>gv-gv")
-(xnoremap "<A-j>" ":move '>+1<CR>gv-gv")
-(xnoremap "<A-k>" ":move '<-2<CR>gv-gv")
+(noremap! [x] "J" ":move '>+1<CR>gv-gv")
+(noremap! [x] "K" ":move '<-2<CR>gv-gv")
+(noremap! [x] "<A-j>" ":move '>+1<CR>gv-gv")
+(noremap! [x] "<A-k>" ":move '<-2<CR>gv-gv")
 
 ;; Better terminal navigation
-(tnoremap "<C-h>" "<C-\\><C-N><C-w>h")
-(tnoremap "<C-j>" "<C-\\><C-N><C-w>j")
-(tnoremap "<C-k>" "<C-\\><C-N><C-w>k")
-(tnoremap "<C-l>" "<C-\\><C-N><C-w>l")
+(noremap! [t] "<C-h>" "<C-\\><C-N><C-w>h")
+(noremap! [t] "<C-j>" "<C-\\><C-N><C-w>j")
+(noremap! [t] "<C-k>" "<C-\\><C-N><C-w>k")
+(noremap! [t] "<C-l>" "<C-\\><C-N><C-w>l")
 
 ;; Telescope
-(nnoremap "<leader>b" ":Telescope buffers<CR>")
-(nnoremap "<leader>ff" ":Telescope current_buffer_fuzzy_find<CR>")
-(nnoremap "<leader>:" ":Telescope commands<CR>")
-(nnoremap "<leader><space>" ":Telescope find_files<CR>")
-(nnoremap "<leader>fb" ":Telescope file_browser<CR>")
-(nnoremap "<leader>so" ":Telescope diagnostics<CR>")
-(nnoremap "<leader>sop" ":Telescope treesitter<CR>")
+(noremap! [n] "<leader>b" ":Telescope buffers<CR>")
+(noremap! [n] "<leader>ff" ":Telescope current_buffer_fuzzy_find<CR>")
+(noremap! [n] "<leader>:" ":Telescope commands<CR>")
+(noremap! [n] "<leader><space>" ":Telescope find_files<CR>")
+(noremap! [n] "<leader>fb" ":Telescope file_browser<CR>")
+(noremap! [n] "<leader>so" ":Telescope diagnostics<CR>")
+(noremap! [n] "<leader>sop" ":Telescope treesitter<CR>")
 
-;; Truezen with Twilight!
-(nnoremap "<leader>z" ":TZAtaraxis<CR> :Twilight<CR>")
+;; Truezen!
+(noremap! [n] "<leader>z" ":TZAtaraxis<CR>")
 
 ;; LSP keybinds
-(nnoremap "<leader>e" "<cmd>lua vim.diagnostic.open_float()<CR>")
-(nnoremap "<leader>[" "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-(nnoremap "<leader>]" "<cmd>lua vim.diagnostic.goto_next()<CR>")
-(nnoremap "<leader>q" "<cmd>lua vim.diagnostic.setloclist()<CR>")
+(noremap! [n] "<leader>e" "<cmd>lua vim.diagnostic.open_float()<CR>")
+(noremap! [n] "<leader>[" "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+(noremap! [n] "<leader>]" "<cmd>lua vim.diagnostic.goto_next()<CR>")
+(noremap! [n] "<leader>q" "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
-(nnoremap "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>" :buffer)
-(nnoremap "gd" "<cmd>lua vim.lsp.buf.definition()<CR>" :buffer)
-(nnoremap "K" "<cmd>lua vim.lsp.buf.hover()<CR>" :buffer)
-(nnoremap "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>" :buffer)
-(nnoremap "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>" :buffer)
-(nnoremap "<space>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" :buffer)
-(nnoremap "<space>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" :buffer)
-(nnoremap "<space>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" :buffer)
-(nnoremap "<space>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>" :buffer)
-(nnoremap "<space>rn" "<cmd>lua vim.lsp.buf.rename()<CR>" :buffer)
-(nnoremap "<space>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>" :buffer)
-(nnoremap "gr" "<cmd>lua vim.lsp.buf.references()<CR>" :buffer)
-(nnoremap "<space>f" "<cmd>lua vim.lsp.buf.formatting()<CR>" :buffer)
+(buf-noremap! [n] "gD" "<cmd>lua vim.lsp.buf.declaration()<CR>")
+(buf-noremap! [n] "gd" "<cmd>lua vim.lsp.buf.definition()<CR>")
+(buf-noremap! [n] "K" "<cmd>lua vim.lsp.buf.hover()<CR>")
+(buf-noremap! [n] "gi" "<cmd>lua vim.lsp.buf.implementation()<CR>")
+(buf-noremap! [n] "<C-k>" "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+(buf-noremap! [n] "<space>wa" "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
+(buf-noremap! [n] "<space>wr" "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
+(buf-noremap! [n] "<space>wl" "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+(buf-noremap! [n] "<space>D" "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+(buf-noremap! [n] "<space>rn" "<cmd>lua vim.lsp.buf.rename()<CR>")
+(buf-noremap! [n] "<space>ca" "<cmd>lua vim.lsp.buf.code_action()<CR>")
+(buf-noremap! [n] "gr" "<cmd>lua vim.lsp.buf.references()<CR>")
+(buf-noremap! [n] "<space>f" "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
-;; (nno- "<up>" "<nop>")
-;; (nno- "<down>" "<nop>")
-;; (nno- "<left>" "<nop>")
-;; (nno- "<right>" "<nop>")
+(noremap! [n] "<up>" "<nop>")
+(noremap! [n] "<down>" "<nop>")
+(noremap! [n] "<left>" "<nop>")
+(noremap! [n] "<right>" "<nop>")
