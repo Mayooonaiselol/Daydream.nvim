@@ -113,6 +113,20 @@ Install the following dependencies:
 - font with nerdfont icons
 - build-tools (optional, if errors occur)
 
+Backup your configs first!
+
+```bash
+mv ~/.config/nvim ~/.config/NVIM.BAK
+```
+
+Clean all the required directories
+
+```bash
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.cache/nvim
+```
+
 Install using the following command:
 
 ```bash
