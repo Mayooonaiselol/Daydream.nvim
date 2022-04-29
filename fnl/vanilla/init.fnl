@@ -3,4 +3,3 @@
 (require :vanilla.core)
 (require :vanilla.keys)
 (require :vanilla.plug)
-(require :vanilla.highlights)
